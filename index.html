@@ -25,6 +25,7 @@
                 <li><a href="#testing" class="nav__link">Testing</a></li>
                 <li><a href="#screens" class="nav__link">Screens</a></li>
                 <li><a href="#deliverables" class="nav__link">Deliverables</a></li>
+                <li><a href="#future" class="nav__link">Future Updates</a></li>
                 <li><a href="#resources" class="nav__link">Resources</a></li>
             </ul>
             <button class="nav__pdf-btn" onclick="window.print()">Save PDF</button>
@@ -446,6 +447,11 @@
                             <span>Secondary text, descriptions, timestamps</span>
                         </div>
                     </div>
+                    
+                    <div class="wcag-box" style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(34,197,94,0.1); border-radius: 12px; border: 1px solid rgba(34,197,94,0.2);">
+                        <h4 style="color: #22C55E; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;"><span>♿</span> WCAG 2.1 Compliant</h4>
+                        <p style="font-size: 0.85rem; color: var(--clr-text-muted); line-height: 1.5;">Every color pairing in the Nova Bank design system has been mathematically tested to ensure a minimum contrast ratio of <strong>4.5:1</strong> for regular text and <strong>3.0:1</strong> for large text, guaranteeing accessibility for visually impaired users.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -598,7 +604,7 @@
                     <p class="screen-showcase__subtitle">Splash screen, login/register forms, OTP verification, PIN setup, and account creation success.</p>
                 </div>
                 <div class="screen-showcase__frame">
-                    <img src="images/screens-auth.png" alt="Onboarding & Authentication Screens" onerror="this.src='https://placehold.co/1200x600/1E293B/4F46E5?text=Screenshots+Pending'">
+                    <img src="images/Screenshot%202026-07-06%20161626.png" alt="Onboarding & Authentication Screens" onerror="this.src='https://placehold.co/1200x600/1E293B/4F46E5?text=Screenshots+Pending'">
                 </div>
                 <p class="screen-showcase__caption">Multi-step authentication flow with real-time password validation and animated transitions.</p>
             </div>
@@ -610,7 +616,7 @@
                     <p class="screen-showcase__subtitle">The central hub — quick actions, pending bills, spending insights pie chart, and notification center.</p>
                 </div>
                 <div class="screen-showcase__frame">
-                    <img src="images/screens-dashboard.png" alt="Dashboard & Insights Screens" onerror="this.src='https://placehold.co/1200x600/1E293B/4F46E5?text=Screenshots+Pending'">
+                    <img src="images/Screenshot%202026-07-06%20161739.png" alt="Dashboard & Insights Screens" onerror="this.src='https://placehold.co/1200x600/1E293B/4F46E5?text=Screenshots+Pending'">
                 </div>
                 <p class="screen-showcase__caption">Dashboard with balance auto-hide (7s timer), interactive spending insights, and bill payment integration.</p>
             </div>
@@ -685,6 +691,35 @@
         </div>
     </section>
 
+    <!-- Future Updates -->
+    <section id="future" class="section">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">THE ROADMAP</div>
+                <h2 class="section__title">Future <em>Updates</em></h2>
+                <p class="section__subtitle">Features and iterations planned for the next phases of Nova Bank's evolution.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="glass-card reveal reveal-delay-1">
+                    <div class="deliverable-card__icon">🤖</div>
+                    <h3 class="deliverable-card__title">Smart Financial Insights</h3>
+                    <p class="deliverable-card__desc">Evolving the current static insights into an AI-powered financial advisor that predicts upcoming bills and suggests saving strategies.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-2">
+                    <div class="deliverable-card__icon">🌐</div>
+                    <h3 class="deliverable-card__title">Real API Integrations</h3>
+                    <p class="deliverable-card__desc">Replacing the current state management with live banking APIs (like Plaid or local UPI gateways) for real-world transaction handling.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-3">
+                    <div class="deliverable-card__icon">🎙️</div>
+                    <h3 class="deliverable-card__title">Voice Payments</h3>
+                    <p class="deliverable-card__desc">Integrating voice-assisted commands to make accessibility even better for visually impaired or elderly users.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Available Resources -->
     <section id="resources" class="section">
         <div class="section__container">
@@ -708,12 +743,12 @@
                 <div class="glass-card reveal reveal-delay-3">
                     <div class="resource-card__icon">💎</div>
                     <h3 class="resource-card__title">Lucide Icons</h3>
-                    <p class="resource-card__desc">A clean, consistent icon set used throughout the app for navigation, actions, and visual indicators. Pairs perfectly with the Inter typeface.</p>
+                    <p class="resource-card__desc">A clean, consistent icon set integrated into the interactive prototype to provide crisp, scalable visual indicators.</p>
                 </div>
                 <div class="glass-card reveal reveal-delay-4">
                     <div class="resource-card__icon">🎭</div>
                     <h3 class="resource-card__title">Framer Motion</h3>
-                    <p class="resource-card__desc">Powers all animations — from page transitions and modal slides to the spring-physics success overlay and blinking cursor on the transfer screen.</p>
+                    <p class="resource-card__desc">Used to bring the static Figma designs to life in the browser, powering all micro-interactions, modal slides, and spring-physics overlays.</p>
                 </div>
             </div>
         </div>
@@ -726,7 +761,7 @@
             <h2 class="section__title">Experience the <em>Prototype</em></h2>
             <p class="section__subtitle">Interact with the live Nova Bank application and explore every screen, animation, and micro-interaction.</p>
         </div>
-        <a href="https://novabankcasestudy.netlify.app/" target="_blank" class="cta-btn reveal">Launch Nova Bank →</a>
+        <a href="https://novabank-app.netlify.app/" target="_blank" class="cta-btn reveal">Launch Nova Bank →</a>
     </section>
 
     <!-- Footer -->
