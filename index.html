@@ -70,7 +70,9 @@
                 </div>
             </div>
             <div class="hero__image-wrap reveal reveal-delay-2">
-                <img src="images/hero.png" alt="Nova Bank App Hero Banner" class="hero__image">
+                <div class="iphone-frame">
+                    <img src="images/screens-dashboard.png" alt="Nova Bank Dashboard" class="hero__image">
+                </div>
             </div>
         </div>
     </header>
@@ -407,21 +409,26 @@
 
                 <div class="glass-card reveal reveal-delay-2">
                     <div class="type-system">
+                        <h4 style="color: #fff; margin-bottom: 1rem; font-family: 'Inter', sans-serif;">1.25 Major Third Ratio</h4>
                         <div class="type-sample">
-                            <div class="type-sample__preview" style="font-size: 30px; font-weight: 700;">Nova Bank</div>
-                            <div class="type-sample__meta">Inter · 30px · Bold · Display</div>
+                            <div class="type-sample__preview" style="font-size: 38px; font-weight: 700;">Nova Bank</div>
+                            <div class="type-sample__meta">Inter · 38px (1.25³) · Bold · Display</div>
                         </div>
                         <div class="type-sample">
-                            <div class="type-sample__preview" style="font-size: 20px; font-weight: 700;">Account Dashboard</div>
-                            <div class="type-sample__meta">Inter · 20px · Bold · Heading</div>
+                            <div class="type-sample__preview" style="font-size: 30px; font-weight: 700;">Account Dashboard</div>
+                            <div class="type-sample__meta">Inter · 30px (1.25²) · Bold · Heading</div>
                         </div>
                         <div class="type-sample">
-                            <div class="type-sample__preview" style="font-size: 14px; font-weight: 400;">Transfer to savings account</div>
-                            <div class="type-sample__meta">Inter · 14px · Regular · Body</div>
+                            <div class="type-sample__preview" style="font-size: 24px; font-weight: 600;">Transfer Funds</div>
+                            <div class="type-sample__meta">Inter · 24px (1.25¹) · Semibold · Title</div>
+                        </div>
+                        <div class="type-sample">
+                            <div class="type-sample__preview" style="font-size: 19px; font-weight: 400;">Your main balance is updated.</div>
+                            <div class="type-sample__meta">Inter · 19px (1.25⁰) · Regular · Body</div>
                         </div>
                         <div class="type-sample" style="border:none;">
-                            <div class="type-sample__preview" style="font-size: 48px; font-weight: 600; letter-spacing: -1px;">₹1,45,000</div>
-                            <div class="type-sample__meta">Inter · 48px · Semibold · Amount Display</div>
+                            <div class="type-sample__preview" style="font-size: 15px; font-weight: 400; color: var(--clr-text-muted);">Timestamp: 10:24 AM</div>
+                            <div class="type-sample__meta">Inter · 15px (1.25⁻¹) · Regular · Muted</div>
                         </div>
                     </div>
                     
@@ -452,6 +459,65 @@
                         <h4 style="color: #22C55E; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;"><span>♿</span> WCAG 2.1 Compliant</h4>
                         <p style="font-size: 0.85rem; color: var(--clr-text-muted); line-height: 1.5;">Every color pairing in the Nova Bank design system has been mathematically tested to ensure a minimum contrast ratio of <strong>4.5:1</strong> for regular text and <strong>3.0:1</strong> for large text, guaranteeing accessibility for visually impaired users.</p>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive State Engineering -->
+    <section id="engineering" class="section">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">SECTION 4</div>
+                <h2 class="section__title">Interactive <em>State Engineering</em></h2>
+                <p class="section__subtitle">Transforming static screens into a robust, context-driven application using React and advanced state management.</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="glass-card reveal reveal-delay-1">
+                    <h3 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">State-Driven Routing</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; line-height: 1.6;">Using React Router inside a unified <code>&lt;MobileLayout&gt;</code> shell ensures that navigation feels instantaneous and app-like, avoiding full-page browser reloads while preserving global context and transitions.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-2">
+                    <h3 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">Security Gating State Machine</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; line-height: 1.6;">Implemented a mandatory 3-step PIN change architecture (`verify_old` &rarr; `set_new` &rarr; `confirm_new`) preventing accidental lockouts by requiring deterministic confirmation of the newly selected secure PIN.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-3">
+                    <h3 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">2FA Intercept Flow</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; line-height: 1.6;">Integrated a seamless Two-Factor Authentication intercept mechanism in the <code>BankContext</code>. When enabled, standard login flows are paused and automatically re-routed to a secure OTP verification sequence.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-4">
+                    <h3 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">Smart Input Mechanics</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; line-height: 1.6;">Engineered programmatic focus shifting for all 4-digit PIN and 6-digit OTP fields. Utilizing custom <code>onKeyDown</code> handlers prevents default browser behaviors, enabling secure and frictionless backspace corrections.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Failure Paths & Exception Handling -->
+    <section id="failure-paths" class="section section--alt">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">SECTION 5</div>
+                <h2 class="section__title">Failure Paths & <em>Exception Handling</em></h2>
+                <p class="section__subtitle">Building a resilient financial app means planning for when things go wrong.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="glass-card reveal reveal-delay-1">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🚨</div>
+                    <h3 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">Global Error Infrastructure</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; line-height: 1.6;">A centralized <code>&lt;ErrorBanner/&gt;</code> handles all negative path states (Network error, Transaction failed, Auth error). Powered by context, it elegantly drops over any active screen to broadcast alerts.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-2">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🛡️</div>
+                    <h3 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">Real-Time Validation</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; line-height: 1.6;">Implemented immediate inline validation for critical interactions—such as ensuring 'Confirm PIN' perfectly matches 'New PIN' before persistence, flashing semantic red error states dynamically.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-3">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">📡</div>
+                    <h3 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">Network State Listening</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; line-height: 1.6;">Engineered automatic event listeners (<code>window.addEventListener('offline')</code>) to instantly inform the user with a dismissible banner if their connection drops midway through sensitive financial transactions.</p>
                 </div>
             </div>
         </div>
@@ -604,7 +670,7 @@
                     <p class="screen-showcase__subtitle">Splash screen, login/register forms, OTP verification, PIN setup, and account creation success.</p>
                 </div>
                 <div class="screen-showcase__frame">
-                    <img src="images/auth.png" alt="Onboarding & Authentication Screens" onerror="this.src='https://placehold.co/1200x600/1E293B/4F46E5?text=Screenshots+Pending'">
+                    <img src="images/screens-auth.png" alt="Onboarding & Authentication Screens" onerror="this.src='https://placehold.co/1200x600/1E293B/4F46E5?text=Screenshots+Pending'">
                 </div>
                 <p class="screen-showcase__caption">Multi-step authentication flow with real-time password validation and animated transitions.</p>
             </div>
@@ -616,7 +682,7 @@
                     <p class="screen-showcase__subtitle">The central hub — quick actions, pending bills, spending insights pie chart, and notification center.</p>
                 </div>
                 <div class="screen-showcase__frame">
-                    <img src="images/dashboard.png" alt="Dashboard & Insights Screens" onerror="this.src='https://placehold.co/1200x600/1E293B/4F46E5?text=Screenshots+Pending'">
+                    <img src="images/screens-dashboard.png" alt="Dashboard & Insights Screens" onerror="this.src='https://placehold.co/1200x600/1E293B/4F46E5?text=Screenshots+Pending'">
                 </div>
                 <p class="screen-showcase__caption">Dashboard with balance auto-hide (7s timer), interactive spending insights, and bill payment integration.</p>
             </div>
@@ -733,7 +799,7 @@
                 <div class="glass-card reveal reveal-delay-1">
                     <div class="resource-card__icon">🖌️</div>
                     <h3 class="resource-card__title">Figma + Figma Make</h3>
-                    <p class="resource-card__desc">Primary design tool for UI mockups and interactive prototyping. Figma Make was used to export the design as production-ready React code.</p>
+                    <p class="resource-card__desc">Utilized bleeding-edge AI design-to-code pipelines to scaffold initial React component structures from high-fidelity mockups. Acted as Lead Engineer to manually audit, refactor, and clean the generated code into a production-ready, semantic Tailwind architecture.</p>
                 </div>
                 <div class="glass-card reveal reveal-delay-2">
                     <div class="resource-card__icon">✍️</div>
@@ -748,7 +814,7 @@
                 <div class="glass-card reveal reveal-delay-4">
                     <div class="resource-card__icon">🎭</div>
                     <h3 class="resource-card__title">Framer Motion</h3>
-                    <p class="resource-card__desc">Used to bring the static Figma designs to life in the browser, powering all micro-interactions, modal slides, and spring-physics overlays.</p>
+                    <p class="resource-card__desc">Orchestrated advanced fluid motion design and spring-physics configuration profiles via an AI-assisted development workflow. Directed the precise layout alignment, coordinate calculations, and exit/entry states to deliver a highly tactile, responsive mobile banking experience.</p>
                 </div>
             </div>
         </div>
@@ -761,7 +827,7 @@
             <h2 class="section__title">Experience the <em>Prototype</em></h2>
             <p class="section__subtitle">Interact with the live Nova Bank application and explore every screen, animation, and micro-interaction.</p>
         </div>
-        <a href="https://novabank-app.netlify.app/" target="_blank" class="cta-btn reveal">Launch Nova Bank →</a>
+        <a href="https://nova-bank-app-ebon.vercel.app/login" target="_blank" class="cta-btn reveal">Launch Nova Bank →</a>
     </section>
 
     <!-- Footer -->
