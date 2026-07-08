@@ -5,7 +5,7 @@ This repository contains the interactive, web-based case study for the **Nova Ba
 It documents the journey from problem identification and high-fidelity Figma mockups to a fully functional React prototype, showcasing a deep integration of Design Systems and Frontend Engineering.
 
 ## 🚀 Live Case Study
-- **[View the Case Study](#)** *(Replace this with your live Vercel/GitHub Pages link for the case study)*
+- **[View the Case Study](https://banking-case-study-ghlevraai-aditya-atal.vercel.app/)**
 
 ## 📱 Live Application Prototype
 - **[View the React Prototype](https://nova-bank-app-ebon.vercel.app/login)**
