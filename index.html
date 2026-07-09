@@ -15,19 +15,24 @@
             <div class="nav__logo">
                 <span class="nav__logo-icon">🏦</span> Nova Bank
             </div>
-            <ul class="nav__links">
-                <li><a href="#introduction" class="nav__link">Intro</a></li>
-                <li><a href="#objectives" class="nav__link">Goals</a></li>
-                <li><a href="#audience" class="nav__link">Users</a></li>
-                <li><a href="#scope" class="nav__link">Scope</a></li>
-                <li><a href="#userflow" class="nav__link">Flow</a></li>
-                <li><a href="#designsystem" class="nav__link">UI System</a></li>
-                <li><a href="#testing" class="nav__link">Testing</a></li>
-                <li><a href="#screens" class="nav__link">Screens</a></li>
-                <li><a href="#deliverables" class="nav__link">Output</a></li>
-                <li><a href="#future" class="nav__link">Roadmap</a></li>
-                <li><a href="#resources" class="nav__link">Toolkit</a></li>
-            </ul>
+            <div class="nav__links-wrapper">
+                <ul class="nav__links">
+                    <li><a href="#introduction" class="nav__link">Intro</a></li>
+                    <li><a href="#objectives" class="nav__link">Goals</a></li>
+                    <li><a href="#audience" class="nav__link">Users</a></li>
+                    <li><a href="#scope" class="nav__link">Scope</a></li>
+                    <li><a href="#userflow" class="nav__link">Flow</a></li>
+                    <li><a href="#designsystem" class="nav__link">UI System</a></li>
+                    <li><a href="#testing" class="nav__link">Testing</a></li>
+                    <li><a href="#screens" class="nav__link">Screens</a></li>
+                    <li><a href="#deliverables" class="nav__link">Output</a></li>
+                    <li><a href="#future" class="nav__link">Roadmap</a></li>
+                    <li><a href="#resources" class="nav__link">Toolkit</a></li>
+                    <li><a href="#changelog" class="nav__link">Versions</a></li>
+                    <li><a href="#prototype" class="nav__link nav__link--highlight">Prototype</a></li>
+                </ul>
+                <div class="nav__scroll-hint">➔</div>
+            </div>
             <button class="nav__pdf-btn" onclick="window.print()">Save PDF</button>
         </div>
     </nav>
@@ -757,6 +762,55 @@
         </div>
     </section>
 
+    <!-- Engineering Changelog -->
+    <section id="changelog" class="section section--alt">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">VERSION HISTORY</div>
+                <h2 class="section__title">The Engineering <em>Changelog</em></h2>
+                <p class="section__subtitle">A chronological record of our structural and feature iterations leading to v1.0.4.</p>
+            </div>
+
+            <div class="timeline-container">
+                <!-- v1.0.0 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-version">v1.0.0 — Initial MVP Release</div>
+                    <ul class="timeline-details">
+                        <li><strong>Baseline Architecture:</strong> Established core frontend layout frames, initial static dashboard viewports, and primary routing maps for the fundamental application skeleton.</li>
+                    </ul>
+                </div>
+                <!-- v1.0.1 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-version">v1.0.1 — Transaction Flow & Privacy Optimization</div>
+                    <ul class="timeline-details">
+                        <li><strong>Context-Driven Keypad:</strong> Refactored the transaction layout so the custom numeric keypad auto-triggers only when the cursor explicitly focus-shifts to the amount input field, cutting layout clutter.</li>
+                        <li><strong>UX Micro-Interactions:</strong> Implemented an account selection toggle matrix allowing seamless shifting between the Main Salary Account and Savings Account, adding a "favorite star" flag for saving future routing preferences.</li>
+                        <li><strong>Default-Hide Privacy Engine:</strong> Transitioned sensitive asset values to a default-hidden state. Tapping to reveal triggers a linear 7-second countdown progress bar component, automatically re-cloaking the balance upon completion or upon manual user dismissal.</li>
+                    </ul>
+                </div>
+                <!-- v1.0.2 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-version">v1.0.2 — Identity Management & Authentication Refactor</div>
+                    <ul class="timeline-details">
+                        <li><strong>Dual-Channel Sign-In:</strong> Engineered an authentication toggle module split between Email and Phone inputs, cleanly adapting to user login preferences.</li>
+                        <li><strong>Dynamic Identity Hydration:</strong> Discarded all hardcoded static profile assets. Integrated runtime user input binding that automatically extracts the user's name string to generate a dynamic initials-based profile avatar at runtime.</li>
+                        <li><strong>Conditional 2FA State Control:</strong> Introduced an opt-in settings gate. Toggling Two-Factor Authentication (2FA) inside security preferences programmatically forces standard subsequent credential inputs to clear a secondary OTP validation view.</li>
+                        <li><strong>Opt-In Biometrics:</strong> Re-architected biometric prompt logic from an onboarding default to an explicit user-controlled permission state inside global settings.</li>
+                    </ul>
+                </div>
+                <!-- v1.0.4 -->
+                <div class="timeline-item reveal">
+                    <div class="timeline-version">v1.0.4 — Security Infrastructure & State Machine Updates</div>
+                    <ul class="timeline-details">
+                        <li><strong>Asynchronous Password Recovery:</strong> Implemented an email recovery flow routing through an intermediate validation view where an OTP check must be verified before granting write-access to the password-reset inputs.</li>
+                        <li><strong>Strict 3-Step PIN Rotation:</strong> Formulated a deterministic state machine for internal PIN modification ensuring zero 1-step blind saves. The exact logic state machine dictates: <code>verify_old &rarr; set_new &rarr; confirm_new</code>.</li>
+                        <li><strong>Error Bounds Handling:</strong> Wired conditional checking to compare the bit-values of confirm_new and set_new. A successful match calls the updatePin() hook and dispatches a success toast message. A mismatch block instantly wipes the confirmation element states and dispatches an immediate inline validation exception: "PINs do not match. Try again."</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Future Updates -->
     <section id="future" class="section">
         <div class="section__container">
@@ -827,6 +881,15 @@
             <h2 class="section__title">Experience the <em>Prototype</em></h2>
             <p class="section__subtitle">Interact with the live Nova Bank application and explore every screen, animation, and micro-interaction.</p>
         </div>
+        <div class="disclaimer-block reveal">
+            <div class="disclaimer-header">
+                <span class="disclaimer-icon">💡</span>
+                <strong>Prototype Testing Note</strong>
+            </div>
+            <p><strong>Simulation Boundary Disclaimer:</strong> Because Nova Bank operates entirely on a robust, client-side state engine without a live server database backend API infrastructure, all interactive One-Time Password (OTP) verification steps are programmatically simulation-gated.</p>
+            <p><strong>Universal Testing Bypass Token:</strong> Use the hardcoded passkey <code>123456</code> to successfully clear any secure OTP verification screens during your walkthrough.</p>
+        </div>
+        
         <a href="https://nova-bank-app-ebon.vercel.app/login" target="_blank" class="cta-btn reveal">Launch Nova Bank →</a>
     </section>
 
