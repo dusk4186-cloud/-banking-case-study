@@ -1,984 +1,929 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="PureLoop — A UX/UI Case Study for a mobile laundry service app connecting residents with reliable laundry and ironing providers in Tier 1 & 2 cities.">
-  <title>PureLoop — UX/UI Case Study | Refresh. Rinse. Repeat.</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="print.css" media="print">
-  <script>
-    // Fix Google Font-swap layout recalculation bug for gradient text
-    if ('fonts' in document) {
-      document.fonts.ready.then(function () {
-        document.documentElement.classList.add('fonts-loaded');
-      });
-    } else {
-      document.documentElement.classList.add('fonts-loaded');
-    }
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nova Bank — UX/UI Case Study</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="print.css" media="print">
 </head>
 <body>
 
-  <!-- ===== Navigation ===== -->
-  <nav class="nav" id="nav">
-    <div class="nav__inner">
-      <div class="nav__logo">
-        <div class="nav__logo-icon">🫧</div>
-        Pure<span>Loop</span>
-      </div>
-      <ul class="nav__links">
-        <li><a href="#introduction">Introduction</a></li>
-        <li><a href="#user-flow">Process</a></li>
-        <li><a href="#screens">V1: Concept</a></li>
-        <li><a href="#screens-v2">V2: Live App</a></li>
-        <li><a href="#accessibility">Accessibility</a></li>
-        <li><a href="#prototype">Prototype</a></li>
-      </ul>
-      <div class="nav__scroll-arrow" aria-hidden="true">
-        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg>
-      </div>
-      <button class="nav__pdf-btn" onclick="window.print()" title="Save as PDF">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-        PDF
-      </button>
-    </div>
-  </nav>
-
-  <!-- ===== Hero Section ===== -->
-  <section class="hero" id="hero">
-    <div class="hero__bg-orb-1"></div>
-    <div class="hero__bg-orb-2"></div>
-    <div class="hero__bg-orb-3"></div>
-
-    <div class="container">
-      <div class="hero__grid">
-        <div class="hero__content">
-          <div class="hero__badge">UX / UI Case Study</div>
-          <h1 class="hero__title">
-            <em>PureLoop</em><br>
-            Refresh. Rinse.<br>Repeat.
-          </h1>
-          <p class="hero__tagline">Laundry made effortless.</p>
-          <p class="hero__desc">
-            A comprehensive UX/UI case study for a mobile application that bridges the gap between 
-            residents of hostels, PGs, and flats with reliable laundry &amp; ironing service providers 
-            in Tier 1 and Tier 2 cities across India.
-          </p>
-          <div class="hero__stats">
-            <div class="hero__stat">
-              <div class="hero__stat-number">15+</div>
-              <div class="hero__stat-label">Screens Designed</div>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav__inner">
+            <div class="nav__logo">
+                <span class="nav__logo-icon">🏦</span> Nova Bank
             </div>
-            <div class="hero__stat">
-              <div class="hero__stat-number">7</div>
-              <div class="hero__stat-label">Core User Flows</div>
+            <div class="nav__links-wrapper">
+                <ul class="nav__links">
+                    <li><a href="#introduction" class="nav__link">Intro</a></li>
+                    <li><a href="#objectives" class="nav__link">Goals</a></li>
+                    <li><a href="#audience" class="nav__link">Users</a></li>
+                    <li><a href="#scope" class="nav__link">Scope</a></li>
+                    <li><a href="#userflow" class="nav__link">Flow</a></li>
+                    <li><a href="#designsystem" class="nav__link">UI System</a></li>
+                    <li><a href="#testing" class="nav__link">Testing</a></li>
+                    <li><a href="#screens" class="nav__link">Screens</a></li>
+                    <li><a href="#deliverables" class="nav__link">Output</a></li>
+                    <li><a href="#future" class="nav__link">Roadmap</a></li>
+                    <li><a href="#resources" class="nav__link">Toolkit</a></li>
+                    <li><a href="#prototype" class="nav__link">Prototype</a></li>
+                </ul>
+                <div class="nav__scroll-hint">➔</div>
             </div>
-            <div class="hero__stat">
-              <div class="hero__stat-number">3</div>
-              <div class="hero__stat-label">User Personas</div>
-            </div>
-          </div>
+            <button class="nav__pdf-btn" onclick="window.print()">Save PDF</button>
         </div>
-        <div class="hero__image">
-          <img src="hero.png" alt="PureLoop App — Hero Illustration" loading="eager">
-        </div>
-      </div>
+    </nav>
 
-      <!-- Table of Contents -->
-      <div class="toc" style="margin-top: 3.5rem;">
-        <a href="#introduction" class="toc__item">📖 Introduction</a>
-        <a href="#objectives" class="toc__item">🎯 Objectives</a>
-        <a href="#audience" class="toc__item">👥 Target Audience</a>
-        <a href="#scope" class="toc__item">📐 Scope of Work</a>
-        <a href="#user-flow" class="toc__item">🗺️ User Flow</a>
-        <a href="#wireframes" class="toc__item">✏️ Wireframes</a>
-        <a href="#design-system" class="toc__item">🎨 Design System</a>
-        <a href="#screens" class="toc__item">✏️ V1: Concept Screens</a>
-        <a href="#screens-v2" class="toc__item">📱 V2: Live App Screens</a>
-        <a href="#deliverables" class="toc__item">📦 Deliverables</a>
-        <a href="#accessibility" class="toc__item">♿ Accessibility</a>
-        <a href="#roadmap" class="toc__item">🚀 Roadmap</a>
-        <a href="#prototype" class="toc__item">💻 Prototype</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Introduction & Background ===== -->
-  <section class="section section--alt" id="introduction">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__label">Introduction &amp; Background</div>
-        <h2 class="section__title">The <em>Problem</em> We're Solving</h2>
-        <p class="section__subtitle">
-          Understanding the laundry landscape for urban residents and why a dedicated platform is needed.
-        </p>
-      </div>
-
-      <div class="intro-grid reveal">
-        <div class="intro__content">
-          <h3>Why PureLoop?</h3>
-          <p>
-            The objective of this project is to create a mobile application that bridges the gap between 
-            <strong>residents or tenants</strong> of hostels, PGs (Paying Guests), and flats in Tier 1 and 2 cities 
-            with reliable <strong>laundry and ironing service providers</strong>.
-          </p>
-          <p>
-            The primary aim is to offer an efficient and user-friendly platform that tackles the key challenges 
-            faced by residents — from finding trustworthy providers to scheduling pickups and tracking orders seamlessly.
-          </p>
-          <div class="divider divider--left"></div>
-          <p>
-            A case study is a detailed analysis of a design project that showcases the problem-solving process, 
-            design decisions, and user-centered approach used to create an effective and user-friendly interface. 
-            It provides valuable insights into the designer's methodology and the impact of their work.
-          </p>
-        </div>
-        <div class="intro__image">
-          <img src="problem.png" alt="Urban laundry problem illustration" loading="lazy">
-        </div>
-      </div>
-
-      <!-- Key Challenges -->
-      <div class="challenges-grid">
-        <div class="challenge-card glass-card reveal reveal-delay-1">
-          <div class="challenge-card__icon">🔍</div>
-          <div class="challenge-card__title">Discoverability</div>
-          <div class="challenge-card__desc">Residents struggle to find reliable laundry services nearby, especially in unfamiliar cities.</div>
-        </div>
-        <div class="challenge-card glass-card reveal reveal-delay-2">
-          <div class="challenge-card__icon">⏰</div>
-          <div class="challenge-card__title">Time Management</div>
-          <div class="challenge-card__desc">Busy schedules of students and professionals leave little time for manual laundry coordination.</div>
-        </div>
-        <div class="challenge-card glass-card reveal reveal-delay-3">
-          <div class="challenge-card__icon">💸</div>
-          <div class="challenge-card__title">Price Transparency</div>
-          <div class="challenge-card__desc">Lack of upfront pricing makes it hard to compare and budget for laundry services.</div>
-        </div>
-        <div class="challenge-card glass-card reveal reveal-delay-4">
-          <div class="challenge-card__icon">📦</div>
-          <div class="challenge-card__title">Order Tracking</div>
-          <div class="challenge-card__desc">No visibility into the status of clothes — pickup, washing, ironing, and delivery stages.</div>
-        </div>
-        <div class="challenge-card glass-card reveal reveal-delay-5">
-          <div class="challenge-card__icon">⭐</div>
-          <div class="challenge-card__title">Trust &amp; Quality</div>
-          <div class="challenge-card__desc">Difficulty assessing provider quality without ratings, reviews, or verified profiles.</div>
-        </div>
-        <div class="challenge-card glass-card reveal reveal-delay-6">
-          <div class="challenge-card__icon">💳</div>
-          <div class="challenge-card__title">Payment Hassle</div>
-          <div class="challenge-card__desc">Cash-only models and lack of digital payment options create friction in transactions.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Objectives & Goals ===== -->
-  <section class="section" id="objectives">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__label">Objectives &amp; Goals</div>
-        <h2 class="section__title">What We Aim to <em>Achieve</em></h2>
-        <p class="section__subtitle">
-          Clear goals driving our design decisions — from user research to final prototype.
-        </p>
-      </div>
-
-      <div class="objectives-list">
-        <div class="objective-item glass-card reveal reveal-delay-1">
-          <div class="objective-item__number">01</div>
-          <div class="objective-item__content">
-            <h4>Seamless Service Discovery</h4>
-            <p>Design an intuitive browsing experience where users can quickly find, compare, and select laundry providers based on location, services, ratings, and pricing.</p>
-          </div>
-        </div>
-        <div class="objective-item glass-card reveal reveal-delay-2">
-          <div class="objective-item__number">02</div>
-          <div class="objective-item__content">
-            <h4>Effortless Booking Flow</h4>
-            <p>Create a streamlined booking and scheduling system with pickup/delivery date-time selection, address management, and service customization.</p>
-          </div>
-        </div>
-        <div class="objective-item glass-card reveal reveal-delay-3">
-          <div class="objective-item__number">03</div>
-          <div class="objective-item__content">
-            <h4>Transparent Pricing Model</h4>
-            <p>Display clear per-kg pricing for washing, ironing, and bundled services so users can make informed decisions without hidden costs.</p>
-          </div>
-        </div>
-        <div class="objective-item glass-card reveal reveal-delay-4">
-          <div class="objective-item__number">04</div>
-          <div class="objective-item__content">
-            <h4>Real-time Order Tracking</h4>
-            <p>Implement a visual order status tracker showing every stage — pickup, washing, steam ironing, out for delivery, and delivered.</p>
-          </div>
-        </div>
-        <div class="objective-item glass-card reveal reveal-delay-5">
-          <div class="objective-item__number">05</div>
-          <div class="objective-item__content">
-            <h4>Trust Through Reviews</h4>
-            <p>Build a feedback and rating system that helps users evaluate providers and continuously improves service quality.</p>
-          </div>
-        </div>
-        <div class="objective-item glass-card reveal reveal-delay-6">
-          <div class="objective-item__number">06</div>
-          <div class="objective-item__content">
-            <h4>Multi-Payment Integration</h4>
-            <p>Support GPay, PhonePe, Amazon Pay UPI, Credit/Debit cards, Netbanking, and Cash on Delivery for maximum convenience.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Target Audience ===== -->
-  <section class="section section--alt" id="audience">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__label">Target Audience</div>
-        <h2 class="section__title">Designed for <em>Real Users</em></h2>
-        <p class="section__subtitle">
-          Understanding the needs, behaviors, and pain points of our intended users through detailed personas.
-        </p>
-      </div>
-
-      <div class="persona-section reveal">
-        <div class="persona-visual">
-          <img src="personas.png" alt="User personas for PureLoop" loading="lazy">
-        </div>
-        <div class="persona-cards">
-          <div class="persona-card glass-card">
-            <div class="persona-card__avatar">🎓</div>
-            <div class="persona-card__info">
-              <span class="tag">Hostel Resident</span>
-              <h4>Rahul, 20 — College Student</h4>
-              <p>Lives in a hostel with no laundry facilities. Needs affordable, quick laundry service. Price-sensitive, values convenience and time-saving features. Prefers UPI payments.</p>
-            </div>
-          </div>
-          <div class="persona-card glass-card">
-            <div class="persona-card__avatar">💼</div>
-            <div class="persona-card__info">
-              <span class="tag">PG Tenant</span>
-              <h4>Ananya, 26 — Working Professional</h4>
-              <p>Lives in a PG in a new city. Busy work schedule leaves no time for laundry. Values quality, punctuality, and professional handling of formal wear. Prefers app-based payments.</p>
-            </div>
-          </div>
-          <div class="persona-card glass-card">
-            <div class="persona-card__avatar">🏠</div>
-            <div class="persona-card__info">
-              <span class="tag">Flat Resident</span>
-              <h4>Vikram &amp; Priya, 30 — Young Couple</h4>
-              <p>Both working, sharing a flat. Need regular weekly laundry pickup. Look for reliable providers with consistent quality. Prefer subscription/bundle pricing and scheduled pickups.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Scope of Work ===== -->
-  <section class="section" id="scope">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__label">Scope of Work</div>
-        <h2 class="section__title">Project <em>Scope &amp; Constraints</em></h2>
-        <p class="section__subtitle">
-          The platforms, functionalities, and boundaries that define this design project.
-        </p>
-      </div>
-
-      <div class="scope-grid">
-        <div class="scope-card glass-card reveal reveal-delay-1">
-          <div class="scope-card__icon">📱</div>
-          <div class="scope-card__title">Mobile-First Design</div>
-          <div class="scope-card__desc">Optimized for Android and iOS mobile devices, following platform-specific design guidelines.</div>
-          <ul class="scope-card__list">
-            <li>Native mobile app UI</li>
-            <li>Responsive touch interactions</li>
-            <li>Accessible on all screen sizes</li>
-          </ul>
-        </div>
-        <div class="scope-card glass-card reveal reveal-delay-2">
-          <div class="scope-card__icon">⚙️</div>
-          <div class="scope-card__title">Core Functionalities</div>
-          <div class="scope-card__desc">Essential features required for a complete laundry service experience.</div>
-          <ul class="scope-card__list">
-            <li>User authentication (Login/Signup)</li>
-            <li>Service provider browsing</li>
-            <li>Booking &amp; scheduling</li>
-            <li>Payment processing</li>
-            <li>Order tracking &amp; status</li>
-            <li>Ratings &amp; reviews</li>
-          </ul>
-        </div>
-        <div class="scope-card glass-card reveal reveal-delay-3">
-          <div class="scope-card__icon">🎨</div>
-          <div class="scope-card__title">Design Deliverables</div>
-          <div class="scope-card__desc">Complete set of design assets produced for this case study.</div>
-          <ul class="scope-card__list">
-            <li>User personas &amp; journey maps</li>
-            <li>Wireframes (Lo-fi &amp; Hi-fi)</li>
-            <li>Interactive prototype</li>
-            <li>Design system &amp; components</li>
-            <li>Usability testing insights</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== User Flow ===== -->
-  <section class="section section--alt" id="user-flow">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__label">User Journey</div>
-        <h2 class="section__title">The Complete <em>User Flow</em></h2>
-        <p class="section__subtitle">
-          A visual walkthrough of the end-to-end user journey — from opening the app to completing an order.
-        </p>
-      </div>
-
-      <div class="intro-grid reveal">
-        <div class="intro__image">
-          <img src="user-flow.png" alt="PureLoop user journey flow diagram" loading="lazy">
-        </div>
-        <div class="intro__content">
-          <h3>From Discovery to Delivery</h3>
-          <p>
-            The user flow is designed to minimize friction at every step. Users open the app, sign up or log in, 
-            and are immediately presented with available services — Washing, Steam Ironing, and Dry Cleaning.
-          </p>
-          <p>
-            After selecting a service and provider, users schedule a pickup, choose their delivery preferences, 
-            and pay through their preferred method. Real-time order tracking keeps them informed at every stage.
-          </p>
-          <div class="divider divider--left"></div>
-          <p>
-            <strong>Key Flow Steps:</strong><br>
-            Splash → Welcome/Onboard → Login/Sign Up → Home Screen → Service Provider → 
-            Pricing → Booking &amp; Scheduling → Payment → Confirmation → Order Tracking → Review
-          </p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Wireframes ===== -->
-  <section class="section" id="wireframes">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__label">Ideation &amp; Wireframing</div>
-        <h2 class="section__title">Low-Fidelity <em>Wireframes</em></h2>
-        <p class="section__subtitle">
-          Early hand-drawn sketches mapping out the essential screen structure, navigation flow, and content hierarchy before starting the digital design process.
-        </p>
-      </div>
-
-      <div class="intro-grid reveal" style="align-items: start;">
-        <div class="screen-showcase">
-          <div class="screen-showcase__frame">
-            <img src="wireframe-1.png" alt="PureLoop Initial Wireframes - Part 1">
-          </div>
-          <p class="screen-showcase__caption">Onboarding, Login, Profile, and Home Screen layouts</p>
-        </div>
-        <div class="screen-showcase">
-          <div class="screen-showcase__frame">
-            <img src="wireframe-2.png" alt="PureLoop Initial Wireframes - Part 2">
-          </div>
-          <p class="screen-showcase__caption">Laundry Listings, Booking, Payment, Tracker, and Reviews</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Design System: Typography & Colors ===== -->
-  <section class="section section--alt" id="design-system">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__label">Design System</div>
-        <h2 class="section__title">Typography &amp; <em>Color Palette</em></h2>
-        <p class="section__subtitle">
-          The visual foundation that ensures consistency, accessibility, and a premium feel across every screen.
-        </p>
-      </div>
-
-      <div class="palette-section reveal">
-        <!-- Color Swatches -->
-        <div>
-          <div class="color-swatches">
-            <div class="swatch">
-              <div class="swatch__color" style="background: #456580;"></div>
-              <div class="swatch__name">Primary</div>
-              <div class="swatch__hex">#456580</div>
-            </div>
-            <div class="swatch">
-              <div class="swatch__color" style="background: #4D78D3;"></div>
-              <div class="swatch__name">Accent</div>
-              <div class="swatch__hex">#4D78D3</div>
-            </div>
-            <div class="swatch">
-              <div class="swatch__color" style="background: #007367;"></div>
-              <div class="swatch__name">CTA (WCAG AA)</div>
-              <div class="swatch__hex">#007367</div>
-            </div>
-            <div class="swatch">
-              <div class="swatch__color" style="background: #0D9488;"></div>
-              <div class="swatch__name">Stroke</div>
-              <div class="swatch__hex">#0D9488</div>
-            </div>
-            <div class="swatch">
-              <div class="swatch__color" style="background: #080808;"></div>
-              <div class="swatch__name">Body Text</div>
-              <div class="swatch__hex">#080808</div>
-            </div>
-            <div class="swatch">
-              <div class="swatch__color" style="background: #747474;"></div>
-              <div class="swatch__name">Secondary</div>
-              <div class="swatch__hex">#747474</div>
-            </div>
-            <div class="swatch">
-              <div class="swatch__color" style="background: #D3A303;"></div>
-              <div class="swatch__name">Highlight</div>
-              <div class="swatch__hex">#D3A303</div>
-            </div>
-            <div class="swatch">
-              <div class="swatch__color" style="background: #F5F0F0;"></div>
-              <div class="swatch__name">Background</div>
-              <div class="swatch__hex">#F5F0F0</div>
-            </div>
-          </div>
-
-          <div style="margin-top: 2rem; padding: 1.5rem; background: rgba(0,115,103,0.04); border: 1px solid rgba(0,115,103,0.1); border-radius: 14px;">
-            <p style="font-size: 0.88rem; color: var(--color-text-secondary); line-height: 1.7;">
-              <strong style="color: var(--color-action-primary);">Design Rationale:</strong> The selected colour palette ensures visual consistency, 
-              usability, and accessibility while maintaining a clean and intuitive user experience. The teal CTA color 
-              (#007367) guarantees a minimum 4.5:1 WCAG AA contrast ratio, drawing attention to primary actions while keeping text legible.
-            </p>
-          </div>
-        </div>
-
-        <!-- Typography -->
-        <div>
-          <div class="typography-preview">
-            <h4>Typography System</h4>
-            
-            <div class="type-sample">
-              <div class="type-sample__label">Heading — Playfair Display, 800</div>
-              <div class="type-sample--heading">PureLoop</div>
-            </div>
-            
-            <div class="type-sample">
-              <div class="type-sample__label">Subheading — Inter, 600</div>
-              <div class="type-sample--subheading">Laundry made effortless</div>
-            </div>
-            
-            <div class="type-sample">
-              <div class="type-sample__label">Body — Inter, 400</div>
-              <div class="type-sample--body">Connecting residents with reliable laundry and ironing providers for a seamless experience.</div>
-            </div>
-            
-            <div class="type-sample">
-              <div class="type-sample__label">Monospace — JetBrains Mono, 400</div>
-              <div class="type-sample--mono">₹50/kg wash &amp; fold | ₹70/kg wash &amp; iron</div>
-            </div>
-          </div>
-
-          <div style="margin-top: 2rem;">
-            <h4 style="font-size: 0.75rem; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase; color: var(--color-text-muted); margin-bottom: 1rem;">Color Usage Guide</h4>
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-              <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 12px; height: 12px; border-radius: 3px; background: #456580; flex-shrink: 0;"></div>
-                <span style="font-size: 0.82rem; color: var(--color-text-secondary);">Headings, labels, key informational text</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 12px; height: 12px; border-radius: 3px; background: #4D78D3; flex-shrink: 0;"></div>
-                <span style="font-size: 0.82rem; color: var(--color-text-secondary);">Secondary text, icons, supporting UI elements</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 12px; height: 12px; border-radius: 3px; background: #007367; flex-shrink: 0;"></div>
-                <span style="font-size: 0.82rem; color: var(--color-text-secondary);">Primary action buttons — "Next", "Confirm", "Submit"</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 12px; height: 12px; border-radius: 3px; background: #0D9488; flex-shrink: 0;"></div>
-                <span style="font-size: 0.82rem; color: var(--color-text-secondary);">Button outlines, borders, interactive elements</span>
-              </div>
-              <div style="display: flex; align-items: center; gap: 12px;">
-                <div style="width: 12px; height: 12px; border-radius: 3px; background: #D3A303; flex-shrink: 0;"></div>
-                <span style="font-size: 0.82rem; color: var(--color-text-secondary);">Shortcut icons, highlights, quick action cues</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== V1: Initial Concept ===== -->
-  <section class="section" id="screens">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__label">Version 1</div>
-        <h2 class="section__title">The Initial <em>Concept</em></h2>
-        <p class="section__subtitle">
-          The original wireframes and low-fidelity prototypes establishing the core user journeys and layout structures.
-        </p>
-      </div>
-
-      <!-- Row 1: Auth & Onboarding -->
-      <div class="screens-row reveal">
-        <div class="screens-row__title">🚀 Onboarding &amp; Authentication</div>
-        <div class="screens-row__subtitle">
-          Splash screen, welcome page, login, sign up, and profile management.
-        </div>
-        <div class="screen-showcase">
-          <div class="screen-showcase__frame">
-            <img src="images/screens-auth.png" alt="PureLoop — Splash, Profile, Welcome, Login, and Sign Up screens">
-          </div>
-          <p class="screen-showcase__caption">Splash Screen → Profile Page → Welcome Onboard → Login → Sign Up</p>
-        </div>
-      </div>
-
-      <!-- Row 2: Core Experience -->
-      <div class="screens-row reveal">
-        <div class="screens-row__title">🏠 Core Booking Experience</div>
-        <div class="screens-row__subtitle">
-          Home screen, provider profiles, pricing, and scheduling.
-        </div>
-        <div class="screen-showcase">
-          <div class="screen-showcase__frame">
-            <img src="images/screens-main.png" alt="PureLoop — Home Screen, Provider Profiles, Pricing, Booking">
-          </div>
-          <p class="screen-showcase__caption">Home Screen → Service Provider → Pricing → Booking &amp; Scheduling</p>
-        </div>
-      </div>
-      
-      <!-- Row 3: Original Order Flow -->
-      <div class="screens-row reveal">
-        <div class="screens-row__title">📦 Original Order Flow (V1)</div>
-        <div class="screens-row__subtitle">
-          The initial static designs for booking details, payment, and order tracking.
-        </div>
-        <div class="screen-showcase">
-          <div class="screen-showcase__frame">
-            <img src="images/screens-order.png" alt="PureLoop — Booking, Payment, Success, Review, and Order Status screens">
-          </div>
-          <p class="screen-showcase__caption">Booking Details → Payment Selection → Success → Review → Order Status Tracker</p>
-        </div>
-      </div>
-
-      <!-- Row 4: Components -->
-      <div class="screens-row reveal">
-        <div class="screens-row__title">🧩 UI Components &amp; Design Tokens</div>
-        <div class="screens-row__subtitle">
-          Reusable components that maintain visual consistency across V1.
-        </div>
-        <div class="screen-showcase">
-          <div class="screen-showcase__frame">
-            <img src="images/screens-components.png" alt="PureLoop — UI components">
-          </div>
-          <p class="screen-showcase__caption">Rating System · Checkboxes · Pricing Tags · Input Fields · Toggle States · Buttons</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== V2: Live App ===== -->
-  <section class="section section--alt" id="screens-v2">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__label">Version 2</div>
-        <h2 class="section__title">The Live <em>Application</em></h2>
-        <p class="section__subtitle">
-          The fully functional, high-fidelity live application built from the initial V1 concepts, featuring interactive state, dynamic dates, and a seamless user experience.
-        </p>
-      </div>
-
-      <!-- Row 1: V2 Splash & Onboarding -->
-      <div class="screens-row reveal">
-        <div class="screens-row__title">✨ Immersive Welcome</div>
-        <div class="screens-row__subtitle">
-          The redesigned, fully responsive Splash Screen and Onboarding Flow in the live app.
-        </div>
-        <div class="screen-showcase" style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
-          <div style="flex: 1; min-width: 280px; max-width: 320px; display: flex; flex-direction: column; align-items: center;">
-            <div class="screen-showcase__frame" style="margin-bottom: 1rem;">
-              <img src="images/v2-splash.png" alt="PureLoop V2 — Splash Screen" style="border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
-            </div>
-            <p class="screen-showcase__caption">Dynamic Loading State</p>
-          </div>
-          <div style="flex: 1; min-width: 280px; max-width: 320px; display: flex; flex-direction: column; align-items: center;">
-            <div class="screen-showcase__frame" style="margin-bottom: 1rem;">
-              <img src="images/v2-onboarding.png" alt="PureLoop V2 — Onboarding Screen" style="border-radius: 24px; box-shadow: 0 20px 40px rgba(0,0,0,0.15);">
-            </div>
-            <p class="screen-showcase__caption">Welcome Screen</p>
-          </div>
-        </div>
-      </div>
-
-      <!-- Row 2: V2 Order Completion -->
-      <div class="screens-row reveal">
-        <div class="screens-row__title">📦 Live Tracking &amp; Payment</div>
-        <div class="screens-row__subtitle">
-          The updated V2 Order Completion screen and interactive Real-time Tracking Timeline featuring dynamic delivery ETAs based on your current local time.
-        </div>
-        <div class="screen-showcase">
-          <!-- 152210 -->
-          <div class="screen-showcase__item">
-            <img src="images/Screenshot%202026-07-05%20152210.png" alt="PureLoop V2 App Screen" style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-          </div>
-          <!-- 152614 -->
-          <div class="screen-showcase__item">
-            <img src="images/Screenshot%202026-07-05%20152614.png" alt="PureLoop V2 App Screen" style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-          </div>
-          <!-- 152636 -->
-          <div class="screen-showcase__item">
-            <img src="images/Screenshot%202026-07-05%20152636.png" alt="PureLoop V2 App Screen" style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-          </div>
-          <!-- 152314 -->
-          <div class="screen-showcase__item">
-            <img src="images/Screenshot%202026-07-05%20152314.png" alt="PureLoop V2 App Screen" style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-          </div>
-          <!-- 152353 -->
-          <div class="screen-showcase__item">
-            <img src="images/Screenshot%202026-07-05%20152353.png" alt="PureLoop V2 App Screen" style="border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.15);">
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== QA & Technical Execution: V1 vs V2 ===== -->
-  <section class="section" id="qa-creative">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__label">Design Evolution: V1 vs V2</div>
-        <h2 class="section__title">V1 Concept vs <em>V2 Live Execution</em></h2>
-      </div>
-
-      <!-- Simple Comparison Table -->
-      <div class="reveal">
-        <div class="table-responsive">
-          <table class="comparison-table">
-            <thead>
-              <tr>
-                <th>Focus Area</th>
-                <th>V1 Concept (Figma)</th>
-                <th>V2 Live App</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Layout &amp; Structure</strong></td>
-                <td>Exploratory and flexible spacing designed for visual appeal.</td>
-                <td>Consistent and structured grid system optimized for all devices.</td>
-              </tr>
-              <tr>
-                <td><strong>Typography</strong></td>
-                <td>Varied text sizes and weights based on aesthetic intuition.</td>
-                <td>Unified, proportional text scaling for enhanced readability and hierarchy.</td>
-              </tr>
-              <tr>
-                <td><strong>Interactive Elements</strong></td>
-                <td>Static button shapes and visual placeholders representing actions.</td>
-                <td>Dynamic buttons and inputs that respond actively to user interactions.</td>
-              </tr>
-              <tr>
-                <td><strong>Data &amp; State</strong></td>
-                <td>Mocked placeholder data isolated on individual design screens.</td>
-                <td>Connected, dynamic data flowing seamlessly throughout the application.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- ===== Design Deliverables ===== -->
-  <section class="section section--alt" id="deliverables">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__label">Design Deliverables</div>
-        <h2 class="section__title">What's Been <em>Delivered</em></h2>
-        <p class="section__subtitle">
-          A comprehensive set of design assets, documentation, and prototypes ready for development handoff.
-        </p>
-      </div>
-
-      <div class="scope-grid">
-        <div class="scope-card glass-card reveal reveal-delay-1">
-          <div class="scope-card__icon">📋</div>
-          <div class="scope-card__title">Research &amp; Personas</div>
-          <div class="scope-card__desc">User research findings, 3 detailed personas, and empathy maps documenting real user needs.</div>
-        </div>
-        <div class="scope-card glass-card reveal reveal-delay-2">
-          <div class="scope-card__icon">✏️</div>
-          <div class="scope-card__title">Wireframes</div>
-          <div class="scope-card__desc">Low-fidelity wireframes for all 15+ screens covering the complete user journey from onboarding to order tracking.</div>
-        </div>
-        <div class="scope-card glass-card reveal reveal-delay-3">
-          <div class="scope-card__icon">🎨</div>
-          <div class="scope-card__title">High-Fidelity Mockups</div>
-          <div class="scope-card__desc">Polished, pixel-perfect UI designs with PureLoop's brand identity applied to every screen and component.</div>
-        </div>
-        <div class="scope-card glass-card reveal reveal-delay-4">
-          <div class="scope-card__icon">🔗</div>
-          <div class="scope-card__title">Interactive Prototype</div>
-          <div class="scope-card__desc">Clickable prototype simulating the real app experience — from splash to order completion in a single flow.</div>
-        </div>
-        <div class="scope-card glass-card reveal reveal-delay-5">
-          <div class="scope-card__icon">📐</div>
-          <div class="scope-card__title">Design System</div>
-          <div class="scope-card__desc">Complete design tokens — color palette, typography scale, component library, spacing system, and icon set.</div>
-        </div>
-        <div class="scope-card glass-card reveal reveal-delay-6">
-          <div class="scope-card__icon">🗺️</div>
-          <div class="scope-card__title">User Flows &amp; Maps</div>
-          <div class="scope-card__desc">Detailed user journey maps, task flows, and information architecture diagrams for developer reference.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Resources & Credits ===== -->
-  <section class="section" id="resources">
-    <div class="container container--narrow">
-      <div class="section__header reveal">
-        <div class="section__label">Available Resources</div>
-        <h2 class="section__title">Tools &amp; <em>Resources</em></h2>
-      </div>
-
-      <div class="objectives-list reveal" style="grid-template-columns: 1fr 1fr;">
-        <div class="glass-card" style="padding: 1.5rem; display: flex; align-items: center; gap: 1rem;">
-          <div style="font-size: 2rem;">🖌️</div>
-          <div>
-            <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">Figma</div>
-            <div style="font-size: 0.82rem; color: var(--color-text-secondary);">Primary design &amp; prototyping tool</div>
-          </div>
-        </div>
-        <div class="glass-card" style="padding: 1.5rem; display: flex; align-items: center; gap: 1rem;">
-          <div style="font-size: 2rem;">🎨</div>
-          <div>
-            <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">Google Fonts</div>
-            <div style="font-size: 0.82rem; color: var(--color-text-secondary);">Typography — Inter, Playfair Display</div>
-          </div>
-        </div>
-        <div class="glass-card" style="padding: 1.5rem; display: flex; align-items: center; gap: 1rem;">
-          <div style="font-size: 2rem;">📷</div>
-          <div>
-            <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">Unsplash &amp; Icons8</div>
-            <div style="font-size: 0.82rem; color: var(--color-text-secondary);">Stock imagery &amp; icon assets</div>
-          </div>
-        </div>
-        <div class="glass-card" style="padding: 1.5rem; display: flex; align-items: center; gap: 1rem;">
-          <div style="font-size: 2rem;">⚛️</div>
-          <div>
-            <div style="font-weight: 700; color: #fff; font-size: 0.95rem;">AI Development Tools</div>
-            <div style="font-size: 0.82rem; color: var(--color-text-secondary);">Agentic AI-assisted prototype build</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Accessibility (WCAG) ===== -->
-  <section class="section section--alt" id="accessibility">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__label">Inclusive Design</div>
-        <h2 class="section__title">WCAG <em>Accessibility</em> Goals</h2>
-        <p class="section__subtitle">
-          Ensuring PureLoop is usable by everyone, regardless of ability or context.
-        </p>
-      </div>
-
-      <div class="scope-grid">
-        <div class="scope-card glass-card reveal reveal-delay-1">
-          <div class="scope-card__icon">👁️</div>
-          <div class="scope-card__title">Color Contrast (AA)</div>
-          <div class="scope-card__desc">Adjusting primary and secondary text against backgrounds to ensure a minimum contrast ratio of 4.5:1 for improved readability.</div>
-        </div>
-        <div class="scope-card glass-card reveal reveal-delay-2">
-          <div class="scope-card__icon">🗣️</div>
-          <div class="scope-card__title">Screen Reader Support</div>
-          <div class="scope-card__desc">Ensuring screen readers can clearly navigate every interactive element — buttons, inputs, and status trackers — through proper labeling and structure.</div>
-        </div>
-        <div class="scope-card glass-card reveal reveal-delay-3">
-          <div class="scope-card__icon">⌨️</div>
-          <div class="scope-card__title">Keyboard Navigation</div>
-          <div class="scope-card__desc">Ensuring focus states are clearly visible and all core flows (booking, payment) can be completed entirely via keyboard.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== Future Roadmap ===== -->
-  <section class="section" id="roadmap">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__label">Looking Ahead</div>
-        <h2 class="section__title">Future <em>Roadmap</em></h2>
-        <p class="section__subtitle">
-          Planned features for the next phase of development.
-        </p>
-      </div>
-
-      <div class="challenges-grid">
-        <div class="challenge-card glass-card reveal reveal-delay-1">
-          <div class="challenge-card__icon">🤖</div>
-          <div class="challenge-card__title">AI Load Estimation</div>
-          <div class="challenge-card__desc">Users can snap a photo of their laundry pile, and AI will estimate the total weight and cost instantly.</div>
-        </div>
-        <div class="challenge-card glass-card reveal reveal-delay-2">
-          <div class="challenge-card__icon">📍</div>
-          <div class="challenge-card__title">Real-Time Fleet Tracking</div>
-          <div class="challenge-card__desc">Live GPS tracking of delivery partners for precise pickup and delivery ETAs.</div>
-        </div>
-        <div class="challenge-card glass-card reveal reveal-delay-3">
-          <div class="challenge-card__icon">🔄</div>
-          <div class="challenge-card__title">Subscription Bundles</div>
-          <div class="challenge-card__desc">Monthly laundry plans for students and flatmates, offering discounted rates for guaranteed recurring volumes.</div>
-        </div>
-        <div class="challenge-card glass-card reveal reveal-delay-4">
-          <div class="challenge-card__icon">🌱</div>
-          <div class="challenge-card__title">Eco-Impact Dashboard</div>
-          <div class="challenge-card__desc">Gamified metrics showing users how much water and energy they saved by choosing high-efficiency provider machines.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CTA Section ===== -->
-  <section class="section cta-section" id="prototype">
-    <div class="container">
-      <div class="section__header reveal">
-        <div class="section__label">Try It Yourself</div>
-        <h2 class="section__title">Explore the <em>App</em></h2>
-        <p class="section__subtitle" style="margin-bottom: 2.5rem;">
-          See the evolution of PureLoop from the initial UX/UI design concept to a fully functional live web application.
-        </p>
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero__orb hero__orb--1"></div>
+        <div class="hero__orb hero__orb--2"></div>
+        <div class="hero__orb hero__orb--3"></div>
         
-        <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
-          <!-- V1 Card -->
-          <div class="glass-card" style="padding: 2.5rem; flex: 1; min-width: 300px; max-width: 450px; display: flex; flex-direction: column; align-items: center; text-align: center;">
-            <div style="font-size: 0.8rem; font-weight: 700; color: var(--color-action-secondary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Version 1</div>
-            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #fff;">Figma Prototype</h3>
-            <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 2rem; line-height: 1.6;">
-              The original interactive design concept. Explore the foundational UX/UI, user flows, and aesthetic direction.
-            </p>
-            <a href="https://www.figma.com/proto/UImyNLimZ9eL4jQsRzvFbX/My-workspace?node-id=137-184&t=f6xUacyGNab4CEXi-1&scaling=scale-down&content-scaling=fixed&page-id=0%3A1&starting-point-node-id=803%3A298&show-proto-sidebar=1" target="_blank" rel="noopener noreferrer" class="cta-btn" style="width: 100%; justify-content: center; background: transparent; border: 2px solid var(--color-action-secondary); color: var(--color-action-secondary); box-shadow: none;">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
-                <path d="M8 5v14l11-7z"/>
-              </svg>
-              Launch Design Concept
-            </a>
-          </div>
+        <div class="hero__grid">
+            <div class="hero__content reveal">
+                <span class="hero__badge">UX / UI Case Study</span>
+                <h1 class="hero__title">Nova Bank — Redefining <em>Mobile Banking</em></h1>
+                <p class="hero__tagline">Secure, intuitive, and beautifully crafted banking for the modern user.</p>
+                <p class="hero__desc">A comprehensive UX/UI case study exploring the design and development of Nova Bank — a mobile banking application that prioritizes security, financial clarity, and a premium dark-themed experience built for India's digital-first generation.</p>
+                
+                <div class="hero__stats">
+                    <div class="hero__stat">
+                        <span class="hero__stat-value">7</span>
+                        <span class="hero__stat-label">Screens</span>
+                    </div>
+                    <div class="hero__stat">
+                        <span class="hero__stat-value">5</span>
+                        <span class="hero__stat-label">Core Flows</span>
+                    </div>
+                </div>
 
-          <!-- V2 Card -->
-          <div class="glass-card" style="padding: 2.5rem; flex: 1; min-width: 300px; max-width: 450px; display: flex; flex-direction: column; align-items: center; text-align: center; border-color: var(--color-action-primary);">
-            <div style="font-size: 0.8rem; font-weight: 700; color: var(--color-action-primary); text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;">Version 2</div>
-            <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: #fff;">Live Application</h3>
-            <p style="font-size: 0.9rem; color: var(--color-text-secondary); margin-bottom: 2rem; line-height: 1.6;">
-              The fully functional version of PureLoop, with real user accounts and live interactivity.
-            </p>
-            <a href="https://purelooop-app-v2.vercel.app/" target="_blank" rel="noopener noreferrer" class="cta-btn" style="width: 100%; justify-content: center;">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="20" height="20">
-                <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-                <polyline points="15 3 21 3 21 9"></polyline>
-                <line x1="10" y1="14" x2="21" y2="3"></line>
-              </svg>
-              Launch Live App
-            </a>
-          </div>
+                <div class="toc">
+                    <a href="#introduction" class="toc__link">🎯 The Challenge</a>
+                    <a href="#audience" class="toc__link">👥 The Users</a>
+                    <a href="#designsystem" class="toc__link">🎨 Visual Language</a>
+                    <a href="#testing" class="toc__link">🧪 User Validation</a>
+                    <a href="#screens" class="toc__link">📱 Final Design</a>
+                    <a href="#prototype" class="toc__link">🚀 Prototype</a>
+                </div>
+            </div>
+            <div class="hero__image-wrap reveal reveal-delay-2">
+                <div class="iphone-frame">
+                    <img src="images/screens-dashboard.png" alt="Nova Bank Dashboard" class="hero__image">
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
-  </section>
+    </header>
 
-  <!-- ===== Footer ===== -->
-  <footer class="footer">
-    <div class="container">
-      <p class="footer__text">
-        PureLoop — Case Study © 2026. Designed with 💧 for a cleaner tomorrow. 
-        <br><span style="font-size: 0.78rem;">Refresh. Rinse. Repeat.</span>
-      </p>
-    </div>
-  </footer>
+    <!-- Introduction & Background -->
+    <section id="introduction" class="section section--alt">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">THE CHALLENGE</div>
+                <h2 class="section__title">The Problem We're <em>Solving</em></h2>
+                <p class="section__subtitle">Traditional banking apps in India often struggle to balance security with usability, resulting in cluttered interfaces, slow loading times, and a lack of clear financial visibility.</p>
+            </div>
 
-  <!-- ===== JavaScript ===== -->
-  <script>
-    // --- Scroll Reveal ---
-    const revealElements = document.querySelectorAll('.reveal');
-    const revealObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+            <div class="grid-3">
+                <div class="glass-card reveal reveal-delay-1">
+                    <span class="challenge-card__icon">🔒</span>
+                    <h3 class="challenge-card__title">Security vs. Usability</h3>
+                    <p class="challenge-card__desc">Users want quick access but banks overload them with security steps. Finding the sweet spot between PIN, OTP, and biometric auth without friction.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-2">
+                    <span class="challenge-card__icon">💸</span>
+                    <h3 class="challenge-card__title">Complex Transactions</h3>
+                    <p class="challenge-card__desc">Fund transfers involve too many screens, unclear fees, and no confirmation that feels trustworthy.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-3">
+                    <span class="challenge-card__icon">📊</span>
+                    <h3 class="challenge-card__title">Financial Visibility</h3>
+                    <p class="challenge-card__desc">Most banking apps hide spending patterns behind reports no one reads. Users lack a quick pulse on their finances.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-4">
+                    <span class="challenge-card__icon">🕐</span>
+                    <h3 class="challenge-card__title">Speed & Responsiveness</h3>
+                    <p class="challenge-card__desc">Slow apps erode trust. A 3-second delay on a payment screen creates anxiety about whether the transaction went through.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-5">
+                    <span class="challenge-card__icon">🎨</span>
+                    <h3 class="challenge-card__title">Visual Overload</h3>
+                    <p class="challenge-card__desc">Traditional banking dashboards pack too many features into one screen, overwhelming first-time and regular users alike.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-6">
+                    <span class="challenge-card__icon">📱</span>
+                    <h3 class="challenge-card__title">Privacy in Public Spaces</h3>
+                    <p class="challenge-card__desc">Users check balances on metros, in offices, and coffee shops. Sensitive financial data needs smarter hide/show behavior.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    revealElements.forEach(el => revealObserver.observe(el));
+    <!-- Objectives & Goals -->
+    <section id="objectives" class="section">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">THE MISSION</div>
+                <h2 class="section__title">What We Aim to <em>Achieve</em></h2>
+                <p class="section__subtitle">Our primary goal is to redefine the mobile banking experience by focusing on clarity, speed, and privacy-first design principles.</p>
+            </div>
 
-    // --- Sticky Nav Scroll Effect ---
-    const nav = document.getElementById('nav');
-    let lastScroll = 0;
+            <div class="grid-2">
+                <div class="glass-card objective-item reveal reveal-delay-1">
+                    <div class="objective-number">01</div>
+                    <div class="objective-content">
+                        <h3>Design a Secure Login Flow</h3>
+                        <p>Multi-step authentication combining email, OTP, and PIN with optional biometric login for returning users.</p>
+                    </div>
+                </div>
+                <div class="glass-card objective-item reveal reveal-delay-2">
+                    <div class="objective-number">02</div>
+                    <div class="objective-content">
+                        <h3>Create a Clean Dashboard</h3>
+                        <p>Surface pending bills, quick actions, and spending insights without overwhelming the user.</p>
+                    </div>
+                </div>
+                <div class="glass-card objective-item reveal reveal-delay-3">
+                    <div class="objective-number">03</div>
+                    <div class="objective-content">
+                        <h3>Simplify Fund Transfers</h3>
+                        <p>Custom keypad, real-time insufficient balance warnings, and a satisfying success animation with haptic feedback.</p>
+                    </div>
+                </div>
+                <div class="glass-card objective-item reveal reveal-delay-4">
+                    <div class="objective-number">04</div>
+                    <div class="objective-content">
+                        <h3>Build Financial Awareness</h3>
+                        <p>Interactive spending insights with pie charts breaking expenses into categories like Shopping, Food, Travel, and Bills.</p>
+                    </div>
+                </div>
+                <div class="glass-card objective-item reveal reveal-delay-5">
+                    <div class="objective-number">05</div>
+                    <div class="objective-content">
+                        <h3>Ensure Privacy by Default</h3>
+                        <p>Auto-hiding balances with a 7-second countdown timer that also triggers when the user switches apps.</p>
+                    </div>
+                </div>
+                <div class="glass-card objective-item reveal reveal-delay-6">
+                    <div class="objective-number">06</div>
+                    <div class="objective-content">
+                        <h3>Deliver a Premium Dark UI</h3>
+                        <p>Consistent dark theme across all screens with smooth Framer Motion animations and micro-interactions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.scrollY;
-      if (currentScroll > 60) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-      lastScroll = currentScroll;
-    });
+    <!-- Target Audience & User Personas -->
+    <section id="audience" class="section section--alt">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">THE USERS</div>
+                <h2 class="section__title">Designed for <em>Real Users</em></h2>
+                <p class="section__subtitle">Understanding who uses Nova Bank helps shape every design decision — from typography sizes to security defaults.</p>
+            </div>
 
-    // --- Smooth scroll for anchor links ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      });
-    });
+            <div class="persona-grid">
+                <div class="persona-image-wrap reveal">
+                    <img src="images/personas.png" alt="Nova Bank User Personas">
+                </div>
+                <div class="persona-stack">
+                    <div class="glass-card persona-card reveal reveal-delay-1">
+                        <div class="persona-avatar" style="background: rgba(79,70,229,0.15)">👨‍💻</div>
+                        <div>
+                            <div class="persona-tag">WORKING PROFESSIONAL</div>
+                            <h3 class="persona-name">Arjun Mehta, 26 — Software Engineer</h3>
+                            <p class="persona-desc">Tech-savvy and always on his phone. Arjun sends money via UPI multiple times a day — to split bills, pay rent, and invest. He expects instant transfers, clean UI, and zero unnecessary clicks. His biggest frustration? Apps that make him re-enter OTPs for every single transaction.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card persona-card reveal reveal-delay-2">
+                        <div class="persona-avatar" style="background: rgba(124,58,237,0.15)">👩‍🎨</div>
+                        <div>
+                            <div class="persona-tag">FREELANCER</div>
+                            <h3 class="persona-name">Priya Sharma, 34 — Freelance Designer</h3>
+                            <p class="persona-desc">Priya manages two accounts — one for business income, one for personal savings. She needs a clear overview of which account has what balance at a glance. She values the spending insights feature to track project expenses vs. personal spending across categories.</p>
+                        </div>
+                    </div>
+                    <div class="glass-card persona-card reveal reveal-delay-3">
+                        <div class="persona-avatar" style="background: rgba(34,197,94,0.15)">👴</div>
+                        <div>
+                            <div class="persona-tag">SENIOR CITIZEN</div>
+                            <h3 class="persona-name">Rajesh Iyer, 58 — Retired Bank Manager</h3>
+                            <p class="persona-desc">Despite his banking background, Rajesh finds most banking apps overwhelming. He needs larger touch targets, straightforward navigation, and strong security defaults. The auto-hide balance feature gives him confidence to check his accounts even in crowded places.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    // --- Glass card mouse glow effect ---
-    document.querySelectorAll('.glass-card').forEach(card => {
-      card.addEventListener('mousemove', (e) => {
-        const rect = card.getBoundingClientRect();
-        const x = ((e.clientX - rect.left) / rect.width) * 100;
-        const y = ((e.clientY - rect.top) / rect.height) * 100;
-        card.style.setProperty('--mouse-x', x + '%');
-        card.style.setProperty('--mouse-y', y + '%');
-      });
-    });
+    <!-- Scope of Work -->
+    <section id="scope" class="section">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">THE BOUNDARIES</div>
+                <h2 class="section__title">Project Scope & <em>Constraints</em></h2>
+                <p class="section__subtitle">Defining the core functionalities and boundaries for the MVP of Nova Bank.</p>
+            </div>
 
-    // --- Active nav link highlight ---
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav__links a');
+            <div class="grid-3">
+                <div class="glass-card reveal reveal-delay-1">
+                    <div class="scope-card__icon">📱</div>
+                    <h3 class="scope-card__title">Mobile-First Design</h3>
+                    <p class="scope-card__desc">The entire app is designed for a mobile viewport (390×844px, iPhone 14 Pro dimensions). Desktop displays the app within a centered phone frame with dark surroundings.</p>
+                    <ul class="scope-list">
+                        <li>Dark mode only</li>
+                        <li>7 interactive screens</li>
+                        <li>Responsive phone frame</li>
+                    </ul>
+                </div>
+                <div class="glass-card reveal reveal-delay-2">
+                    <div class="scope-card__icon">⚙️</div>
+                    <h3 class="scope-card__title">Core Functionalities</h3>
+                    <p class="scope-card__desc">The design covers the complete end-to-end banking experience from first launch to daily usage.</p>
+                    <ul class="scope-list">
+                        <li>Splash + Onboarding</li>
+                        <li>Login / Register / OTP / PIN</li>
+                        <li>Dashboard with Quick Actions</li>
+                        <li>Fund Transfers with Custom Keypad</li>
+                        <li>Transaction History with Filters</li>
+                        <li>Card Management & Controls</li>
+                        <li>Profile & Security Settings</li>
+                    </ul>
+                </div>
+                <div class="glass-card reveal reveal-delay-3">
+                    <div class="scope-card__icon">📦</div>
+                    <h3 class="scope-card__title">Design Deliverables</h3>
+                    <p class="scope-card__desc">What was produced as part of this case study project.</p>
+                    <ul class="scope-list">
+                        <li>High-fidelity UI mockups</li>
+                        <li>Interactive prototype (Figma Make)</li>
+                        <li>Usability test report (5 participants)</li>
+                        <li>Design system documentation</li>
+                        <li>This case study</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
 
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        const sectionTop = section.offsetTop - 120;
-        if (window.scrollY >= sectionTop) {
-          current = section.getAttribute('id');
-        }
-      });
+    <!-- User Flow -->
+    <section id="userflow" class="section section--alt">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">THE JOURNEY</div>
+                <h2 class="section__title">The Complete <em>User Flow</em></h2>
+                <p class="section__subtitle">Mapping out the end-to-end journey for a user navigating the Nova Bank application.</p>
+            </div>
 
-      navLinks.forEach(link => {
-        link.style.color = '';
-        if (link.getAttribute('href') === '#' + current) {
-          link.style.color = '#00E7D2';
-        }
-      });
-    });
-  </script>
+            <div class="flow-grid">
+                <div class="flow-image-wrap reveal glass-card" style="padding: 2rem; display: flex; justify-content: center; align-items: center;">
+                    <svg width="100%" viewBox="0 0 400 600" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#4F46E5" />
+                                <stop offset="100%" stop-color="#7C3AED" />
+                            </linearGradient>
+                            <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#7C3AED" />
+                            </marker>
+                        </defs>
+                        
+                        <!-- Nodes -->
+                        <rect x="125" y="20" width="150" height="40" rx="20" fill="url(#nodeGrad)" />
+                        <text x="200" y="45" fill="white" font-family="Inter, sans-serif" font-size="14" font-weight="600" text-anchor="middle">Splash Screen</text>
 
+                        <rect x="125" y="100" width="150" height="40" rx="20" fill="url(#nodeGrad)" />
+                        <text x="200" y="125" fill="white" font-family="Inter, sans-serif" font-size="14" font-weight="600" text-anchor="middle">Login / Register</text>
+
+                        <rect x="125" y="180" width="150" height="40" rx="20" fill="url(#nodeGrad)" />
+                        <text x="200" y="205" fill="white" font-family="Inter, sans-serif" font-size="14" font-weight="600" text-anchor="middle">OTP Verification</text>
+
+                        <rect x="125" y="260" width="150" height="40" rx="20" fill="url(#nodeGrad)" />
+                        <text x="200" y="285" fill="white" font-family="Inter, sans-serif" font-size="14" font-weight="600" text-anchor="middle">PIN Setup</text>
+
+                        <rect x="125" y="340" width="150" height="40" rx="8" fill="url(#nodeGrad)" stroke="#22C55E" stroke-width="2"/>
+                        <text x="200" y="365" fill="white" font-family="Inter, sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Dashboard</text>
+
+                        <rect x="20" y="460" width="100" height="40" rx="10" fill="#1E293B" stroke="#4F46E5" stroke-width="2"/>
+                        <text x="70" y="485" fill="white" font-family="Inter, sans-serif" font-size="12" font-weight="500" text-anchor="middle">Transfer</text>
+
+                        <rect x="140" y="460" width="100" height="40" rx="10" fill="#1E293B" stroke="#4F46E5" stroke-width="2"/>
+                        <text x="190" y="485" fill="white" font-family="Inter, sans-serif" font-size="12" font-weight="500" text-anchor="middle">History</text>
+
+                        <rect x="260" y="460" width="100" height="40" rx="10" fill="#1E293B" stroke="#4F46E5" stroke-width="2"/>
+                        <text x="310" y="485" fill="white" font-family="Inter, sans-serif" font-size="12" font-weight="500" text-anchor="middle">Cards & Profile</text>
+
+                        <!-- Lines -->
+                        <line x1="200" y1="60" x2="200" y2="100" stroke="#7C3AED" stroke-width="2" marker-end="url(#arrow)" />
+                        <line x1="200" y1="140" x2="200" y2="180" stroke="#7C3AED" stroke-width="2" marker-end="url(#arrow)" />
+                        <line x1="200" y1="220" x2="200" y2="260" stroke="#7C3AED" stroke-width="2" marker-end="url(#arrow)" />
+                        <line x1="200" y1="300" x2="200" y2="340" stroke="#7C3AED" stroke-width="2" marker-end="url(#arrow)" />
+                        
+                        <!-- Branches -->
+                        <line x1="200" y1="380" x2="200" y2="420" stroke="#7C3AED" stroke-width="2" />
+                        <line x1="70" y1="420" x2="310" y2="420" stroke="#7C3AED" stroke-width="2" />
+                        
+                        <line x1="70" y1="420" x2="70" y2="460" stroke="#7C3AED" stroke-width="2" marker-end="url(#arrow)" />
+                        <line x1="190" y1="420" x2="190" y2="460" stroke="#7C3AED" stroke-width="2" marker-end="url(#arrow)" />
+                        <line x1="310" y1="420" x2="310" y2="460" stroke="#7C3AED" stroke-width="2" marker-end="url(#arrow)" />
+                    </svg>
+                </div>
+                <div class="reveal reveal-delay-2">
+                    <ul class="flow-steps">
+                        <li><strong>Splash Screen</strong> — 2-second branded intro with Nova Bank logo and loading spinner</li>
+                        <li><strong>Authentication</strong> — Email + password → 6-digit OTP verification → 4-digit PIN setup (new users)</li>
+                        <li><strong>Dashboard</strong> — Central hub: check balance, pay bills, view insights, access quick services</li>
+                        <li><strong>Transfer Money</strong> — Select account → Enter amount via custom keypad → Add recipient → Confirm → Success with haptic feedback</li>
+                        <li><strong>Transaction History</strong> — Filter by All, Income, or Expense with date-grouped entries</li>
+                        <li><strong>Card Management</strong> — View virtual debit card, toggle online/international transactions, copy card details</li>
+                        <li><strong>Profile & Settings</strong> — Edit personal info, manage security (PIN, biometric, 2FA), notification preferences</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Typography & Color Moodboards -->
+    <section id="designsystem" class="section">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">THE VISUAL LANGUAGE</div>
+                <h2 class="section__title">Typography & Color <em>Palette</em></h2>
+                <p class="section__subtitle">A modern, dark-first design system crafted for legibility, accessibility, and a premium aesthetic.</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="reveal reveal-delay-1">
+                    <div class="color-grid">
+                        <div class="color-swatch">
+                            <div class="color-swatch__block" style="background: #0F172A"></div>
+                            <div class="color-swatch__name">Background</div>
+                            <div class="color-swatch__hex">#0F172A</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch__block" style="background: #1E293B"></div>
+                            <div class="color-swatch__name">Surface</div>
+                            <div class="color-swatch__hex">#1E293B</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch__block" style="background: #4F46E5"></div>
+                            <div class="color-swatch__name">Primary</div>
+                            <div class="color-swatch__hex">#4F46E5</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch__block" style="background: #7C3AED"></div>
+                            <div class="color-swatch__name">Accent</div>
+                            <div class="color-swatch__hex">#7C3AED</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch__block" style="background: #22C55E"></div>
+                            <div class="color-swatch__name">Success</div>
+                            <div class="color-swatch__hex">#22C55E</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch__block" style="background: #EF4444"></div>
+                            <div class="color-swatch__name">Error</div>
+                            <div class="color-swatch__hex">#EF4444</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch__block" style="background: #FFFFFF"></div>
+                            <div class="color-swatch__name">Text</div>
+                            <div class="color-swatch__hex">#FFFFFF</div>
+                        </div>
+                        <div class="color-swatch">
+                            <div class="color-swatch__block" style="background: #93A2B7"></div>
+                            <div class="color-swatch__name">Muted</div>
+                            <div class="color-swatch__hex">#93A2B7</div>
+                        </div>
+                    </div>
+                    
+                    <div class="rationale-box">
+                        <h4 class="rationale-box__title">Design Rationale</h4>
+                        <p class="rationale-box__text">The dark-first approach was chosen to reduce eye strain during financial tasks, improve readability of numerical data, and create a premium, trust-inducing atmosphere. Indigo serves as the primary accent — conveying both reliability and modernity — while violet adds depth to interactive gradients.</p>
+                    </div>
+                </div>
+
+                <div class="glass-card reveal reveal-delay-2">
+                    <div class="type-system">
+                        <h4 style="color: #fff; margin-bottom: 1rem; font-family: 'Inter', sans-serif;">1.25 Major Third Ratio</h4>
+                        <div class="type-sample">
+                            <div class="type-sample__preview" style="font-size: 38px; font-weight: 700;">Nova Bank</div>
+                            <div class="type-sample__meta">Inter · 38px (1.25³) · Bold · Display</div>
+                        </div>
+                        <div class="type-sample">
+                            <div class="type-sample__preview" style="font-size: 30px; font-weight: 700;">Account Dashboard</div>
+                            <div class="type-sample__meta">Inter · 30px (1.25²) · Bold · Heading</div>
+                        </div>
+                        <div class="type-sample">
+                            <div class="type-sample__preview" style="font-size: 24px; font-weight: 600;">Transfer Funds</div>
+                            <div class="type-sample__meta">Inter · 24px (1.25¹) · Semibold · Title</div>
+                        </div>
+                        <div class="type-sample">
+                            <div class="type-sample__preview" style="font-size: 19px; font-weight: 400;">Your main balance is updated.</div>
+                            <div class="type-sample__meta">Inter · 19px (1.25⁰) · Regular · Body</div>
+                        </div>
+                        <div class="type-sample" style="border:none;">
+                            <div class="type-sample__preview" style="font-size: 15px; font-weight: 400; color: var(--clr-text-muted);">Timestamp: 10:24 AM</div>
+                            <div class="type-sample__meta">Inter · 15px (1.25⁻¹) · Regular · Muted</div>
+                        </div>
+                    </div>
+                    
+                    <div class="color-usage" style="margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid var(--clr-border);">
+                        <div class="color-usage__item">
+                            <div class="color-usage__dot" style="background: #4F46E5;"></div>
+                            <span>Primary actions, CTAs, active navigation, focus states</span>
+                        </div>
+                        <div class="color-usage__item">
+                            <div class="color-usage__dot" style="background: #7C3AED;"></div>
+                            <span>Transfer banners, card gradients, secondary accents</span>
+                        </div>
+                        <div class="color-usage__item">
+                            <div class="color-usage__dot" style="background: #22C55E;"></div>
+                            <span>Success states, income indicators, verified badges</span>
+                        </div>
+                        <div class="color-usage__item">
+                            <div class="color-usage__dot" style="background: #EF4444;"></div>
+                            <span>Error states, destructive actions, notification dots</span>
+                        </div>
+                        <div class="color-usage__item">
+                            <div class="color-usage__dot" style="background: #93A2B7;"></div>
+                            <span>Secondary text, descriptions, timestamps</span>
+                        </div>
+                    </div>
+                    
+                    <div class="wcag-box" style="margin-top: 1.5rem; padding: 1.5rem; background: rgba(34,197,94,0.1); border-radius: 12px; border: 1px solid rgba(34,197,94,0.2);">
+                        <h4 style="color: #22C55E; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 8px;"><span>♿</span> WCAG 2.1 Compliant</h4>
+                        <p style="font-size: 0.85rem; color: var(--clr-text-muted); line-height: 1.5;">Every color pairing in the Nova Bank design system has been mathematically tested to ensure a minimum contrast ratio of <strong>4.5:1</strong> for regular text and <strong>3.0:1</strong> for large text, guaranteeing accessibility for visually impaired users.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interaction Design -->
+    <section id="engineering" class="section">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">SECTION 4</div>
+                <h2 class="section__title">Interaction <em>Design</em></h2>
+                <p class="section__subtitle">Transforming static screens into a fluid, context-driven experience that prioritizes user intent and security.</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="glass-card reveal reveal-delay-1">
+                    <h3 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">Seamless Navigation</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; line-height: 1.6;">The app structure is designed to feel instantaneous and cohesive, avoiding jarring page loads while preserving the user's context and momentum as they move between financial tasks.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-2">
+                    <h3 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">Preventing Accidental Lockouts</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; line-height: 1.6;">Designed a mandatory 3-step PIN change architecture (Verify Old &rarr; Set New &rarr; Confirm New). This intentional friction prevents users from accidentally locking themselves out due to typos.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-3">
+                    <h3 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">Contextual Authentication</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; line-height: 1.6;">Integrated a seamless Two-Factor Authentication flow. When high-security actions are detected, the standard flow is gently paused and the user is guided through an OTP verification sequence without losing their place.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-4">
+                    <h3 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">Frictionless Input</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; line-height: 1.6;">Engineered smart auto-focusing for PIN and OTP fields. As a user types, focus shifts automatically to the next digit, and backspacing seamlessly returns to the previous input, making data entry completely fluid.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Failure Paths & Exception Handling -->
+    <section id="failure-paths" class="section section--alt">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">SECTION 5</div>
+                <h2 class="section__title">Failure Paths & <em>Exception Handling</em></h2>
+                <p class="section__subtitle">Building a resilient financial app means planning for when things go wrong.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="glass-card reveal reveal-delay-1">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🚨</div>
+                    <h3 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">Consistent Error Handling</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; line-height: 1.6;">Built a single, unified alert system that surfaces clearly whenever something goes wrong — a failed network request, a declined transaction, or an authentication issue. It appears consistently over any screen so users always get the same clear, calm message instead of a silent failure or a confusing dead end.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-2">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">🛡️</div>
+                    <h3 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">Real-Time Validation</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; line-height: 1.6;">Implemented immediate inline validation for critical interactions—such as ensuring 'Confirm PIN' perfectly matches 'New PIN' before persistence, flashing semantic red error states dynamically.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-3">
+                    <div style="font-size: 2rem; margin-bottom: 1rem;">📡</div>
+                    <h3 style="color: #fff; margin-bottom: 0.5rem; font-family: 'Inter', sans-serif;">Staying Informed Mid-Transaction</h3>
+                    <p style="color: var(--clr-text-muted); font-size: 0.9rem; line-height: 1.6;">If a user's connection drops in the middle of a payment, the app immediately shows a dismissible alert rather than leaving them wondering whether the transaction went through. This was a deliberate choice for a banking app — silence during a financial transaction erodes trust faster than an honest error message.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usability Testing Results -->
+    <section id="testing" class="section section--alt">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">USER VALIDATION</div>
+                <h2 class="section__title">What Real Users <em>Told Us</em></h2>
+                <p class="section__subtitle">A quick remote usability test with 5 participants validated our design decisions and revealed opportunities for refinement.</p>
+            </div>
+
+            <div class="metric-cards">
+                <div class="glass-card metric-card reveal reveal-delay-1">
+                    <div class="metric-card__value">11/15</div>
+                    <div class="metric-card__label">Tasks Completed</div>
+                    <div style="font-size: 0.75rem; color: var(--clr-text-muted); margin-top: 0.5rem; font-weight: normal; text-transform: none; letter-spacing: normal;">(3 core tasks × 5 users)</div>
+                </div>
+                <div class="glass-card metric-card reveal reveal-delay-2">
+                    <div class="metric-card__value">4.8/5</div>
+                    <div class="metric-card__label">Average UX Rating</div>
+                </div>
+                <div class="glass-card metric-card reveal reveal-delay-3">
+                    <div class="metric-card__value">5</div>
+                    <div class="metric-card__label">Participants Tested</div>
+                </div>
+            </div>
+
+            <div class="grid-2" style="margin-bottom: var(--space-xl);">
+                <div class="glass-card reveal reveal-delay-1">
+                    <h3 style="font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">Task Results</h3>
+                    <table class="results-table">
+                        <thead>
+                            <tr>
+                                <th>Task</th>
+                                <th>Description</th>
+                                <th>Success Rate</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Q1</td>
+                                <td>Noticed balance auto-hide (7s timer)</td>
+                                <td class="success-rate high">80%</td>
+                            </tr>
+                            <tr>
+                                <td>Q3</td>
+                                <td>Read exact savings account balance</td>
+                                <td class="success-rate medium">60%</td>
+                            </tr>
+                            <tr>
+                                <td>Q5</td>
+                                <td>Identified post-payment confirmation message</td>
+                                <td class="success-rate high">80%</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="glass-card reveal reveal-delay-2">
+                    <h3 style="font-family: 'Inter', sans-serif; font-size: 1.1rem; font-weight: 700; color: #fff; margin-bottom: 1rem;">Satisfaction Ratings</h3>
+                    <div class="rating-bars">
+                        <div class="rating-bar">
+                            <span class="rating-bar__label">Security</span>
+                            <div class="rating-bar__track">
+                                <div class="rating-bar__fill" style="width: 88%;"></div>
+                            </div>
+                            <span class="rating-bar__value">4.4/5</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-bar__label">Account Switching</span>
+                            <div class="rating-bar__track">
+                                <div class="rating-bar__fill" style="width: 96%;"></div>
+                            </div>
+                            <span class="rating-bar__value">4.8/5</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-bar__label">Payment Clarity</span>
+                            <div class="rating-bar__track">
+                                <div class="rating-bar__fill" style="width: 96%;"></div>
+                            </div>
+                            <span class="rating-bar__value">4.8/5</span>
+                        </div>
+                        <div class="rating-bar">
+                            <span class="rating-bar__label">Overall UX</span>
+                            <div class="rating-bar__track">
+                                <div class="rating-bar__fill" style="width: 96%;"></div>
+                            </div>
+                            <span class="rating-bar__value">4.8/5</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 style="font-family: 'Inter', sans-serif; font-size: 1.4rem; font-weight: 700; color: #fff; text-align: center; margin-bottom: var(--space-md);" class="reveal">Key Findings & Refinements</h3>
+            
+            <div class="grid-2">
+                <div class="glass-card reveal reveal-delay-1">
+                    <div class="finding-card__icon">⏱️</div>
+                    <h4 class="finding-card__title">Timer Perception</h4>
+                    <p class="finding-card__desc">Participant 3 felt the 7-second balance countdown "felt like 4-5 seconds." The fast-paced animation creates urgency that may not match user expectations.</p>
+                    <div class="finding-card__resolved">✓ IDENTIFIED & NOTED</div>
+                </div>
+                <div class="glass-card reveal reveal-delay-2">
+                    <div class="finding-card__icon">⌨️</div>
+                    <h4 class="finding-card__title">Keypad Auto-Focus</h4>
+                    <p class="finding-card__desc">Participant 2 flagged that the amount field doesn't auto-trigger the keypad on the payment screen, requiring an extra scroll. A clear friction point.</p>
+                    <div class="finding-card__resolved">✓ IMPLEMENTED IN APP</div>
+                </div>
+                <div class="glass-card reveal reveal-delay-3">
+                    <div class="finding-card__icon">🔢</div>
+                    <h4 class="finding-card__title">Balance Readability</h4>
+                    <p class="finding-card__desc">Two participants misread ₹3,50,200 — one as ₹3,52,000 and another as ₹1,36,500. Currency formatting with proper thousand separators is critical.</p>
+                    <div class="finding-card__resolved">✓ IMPLEMENTED IN APP</div>
+                </div>
+                <div class="glass-card reveal reveal-delay-4">
+                    <div class="finding-card__icon">🔐</div>
+                    <h4 class="finding-card__title">Public Space Privacy</h4>
+                    <p class="finding-card__desc">Participant 4 raised concerns about viewing balances in crowded environments like metros. The auto-hide feature partially addresses this, but blur-on-look-away could enhance it further.</p>
+                    <div class="finding-card__resolved">✓ IDENTIFIED & NOTED</div>
+                </div>
+            </div>
+
+            <div class="quote-block reveal">
+                <p>"While paying, make sure the keypad gets popped up so that we don't have to scroll to put the amount."</p>
+                <cite>— Participant 2, Usability Test</cite>
+            </div>
+            
+            <div class="quote-block reveal">
+                <p>"7 seconds of balance screen feels like 4-5 seconds — can be increased by a few seconds."</p>
+                <cite>— Participant 3, Usability Test</cite>
+            </div>
+        </div>
+    </section>
+
+    <!-- UI Screens Showcase -->
+    <section id="screens" class="section">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">THE FINAL DESIGN</div>
+                <h2 class="section__title">The Complete App <em>Experience</em></h2>
+                <p class="section__subtitle">A walkthrough of the core flows designed to be intuitive, secure, and beautiful.</p>
+            </div>
+
+            <div class="screen-showcase reveal">
+                <div class="screen-showcase__header">
+                    <span class="screen-showcase__tag">🚀</span>
+                    <h3 class="screen-showcase__title">Onboarding & Authentication</h3>
+                    <p class="screen-showcase__subtitle">Splash screen, login/register forms, OTP verification, PIN setup, and account creation success.</p>
+                </div>
+                <div class="screen-showcase__frame">
+                    <img src="images/screens-auth.png" alt="Onboarding & Authentication Screens" onerror="this.src='https://placehold.co/1200x600/1E293B/4F46E5?text=Screenshots+Pending'">
+                </div>
+                <p class="screen-showcase__caption">Multi-step authentication flow with real-time password validation and animated transitions.</p>
+            </div>
+
+            <div class="screen-showcase reveal">
+                <div class="screen-showcase__header">
+                    <span class="screen-showcase__tag">🏠</span>
+                    <h3 class="screen-showcase__title">Dashboard & Financial Insights</h3>
+                    <p class="screen-showcase__subtitle">The central hub — quick actions, pending bills, spending insights pie chart, and notification center.</p>
+                </div>
+                <div class="screen-showcase__frame">
+                    <img src="images/screens-dashboard.png" alt="Dashboard & Insights Screens" onerror="this.src='https://placehold.co/1200x600/1E293B/4F46E5?text=Screenshots+Pending'">
+                </div>
+                <p class="screen-showcase__caption">Dashboard with balance auto-hide (7s timer), interactive spending insights, and bill payment integration.</p>
+            </div>
+
+            <div class="screen-showcase reveal">
+                <div class="screen-showcase__header">
+                    <span class="screen-showcase__tag">💸</span>
+                    <h3 class="screen-showcase__title">Transfers & Payments</h3>
+                    <p class="screen-showcase__subtitle">Custom keypad, account switching, real-time validation, and success confirmation with haptic feedback.</p>
+                </div>
+                <div class="screen-showcase__frame">
+                    <img src="images/screens-transfer.png" alt="Transfers & Payments Screens" onerror="this.src='https://placehold.co/1200x600/1E293B/4F46E5?text=Screenshots+Pending'">
+                </div>
+                <p class="screen-showcase__caption">Transfer flow featuring a custom numeric keypad, insufficient balance warnings, and celebratory success overlay.</p>
+            </div>
+
+            <div class="screen-showcase reveal">
+                <div class="screen-showcase__header">
+                    <span class="screen-showcase__tag">💳</span>
+                    <h3 class="screen-showcase__title">Cards & Profile</h3>
+                    <p class="screen-showcase__subtitle">Virtual card management, security settings, profile editing, and notification preferences.</p>
+                </div>
+                <div class="screen-showcase__frame">
+                    <img src="images/screens-cards.png" alt="Cards & Profile Screens" onerror="this.src='https://placehold.co/1200x600/1E293B/4F46E5?text=Screenshots+Pending'">
+                </div>
+                <p class="screen-showcase__caption">Card controls with toggle switches, virtual card reveal, and comprehensive profile management.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Design Deliverables -->
+    <section id="deliverables" class="section section--alt">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">THE OUTPUT</div>
+                <h2 class="section__title">What's Been <em>Delivered</em></h2>
+                <p class="section__subtitle">A summary of the artifacts created during the Nova Bank design process.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="glass-card reveal reveal-delay-1">
+                    <div class="deliverable-card__icon">🔍</div>
+                    <h3 class="deliverable-card__title">Research & Usability Testing</h3>
+                    <p class="deliverable-card__desc">5-participant remote usability test with task-based questions, Likert-scale ratings, and qualitative feedback analysis.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-2">
+                    <div class="deliverable-card__icon">🎨</div>
+                    <h3 class="deliverable-card__title">High-Fidelity Mockups</h3>
+                    <p class="deliverable-card__desc">7 pixel-perfect screens designed in Figma covering the complete end-to-end banking experience.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-3">
+                    <div class="deliverable-card__icon">▶️</div>
+                    <h3 class="deliverable-card__title">Interactive Prototype</h3>
+                    <p class="deliverable-card__desc">Fully functional React prototype with animated transitions, haptic feedback, and real-time state management.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-4">
+                    <div class="deliverable-card__icon">🎯</div>
+                    <h3 class="deliverable-card__title">Design System & Tokens</h3>
+                    <p class="deliverable-card__desc">Comprehensive color palette, typography scale, spacing tokens, and component patterns documented for developer handoff.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-5">
+                    <div class="deliverable-card__icon">🗺️</div>
+                    <h3 class="deliverable-card__title">User Flows & Navigation</h3>
+                    <p class="deliverable-card__desc">End-to-end user journey maps covering authentication, dashboard interaction, transfers, and profile management.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-6">
+                    <div class="deliverable-card__icon">📄</div>
+                    <h3 class="deliverable-card__title">Case Study Documentation</h3>
+                    <p class="deliverable-card__desc">This comprehensive case study documenting the entire design process from problem identification through validation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Updates -->
+    <section id="future" class="section">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">THE ROADMAP</div>
+                <h2 class="section__title">Future <em>Updates</em></h2>
+                <p class="section__subtitle">Features and iterations planned for the next phases of Nova Bank's evolution.</p>
+            </div>
+
+            <div class="grid-3">
+                <div class="glass-card reveal reveal-delay-1">
+                    <div class="deliverable-card__icon">🤖</div>
+                    <h3 class="deliverable-card__title">Smart Financial Insights</h3>
+                    <p class="deliverable-card__desc">Evolving the current static insights into an AI-powered financial advisor that predicts upcoming bills and suggests saving strategies.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-2">
+                    <div class="deliverable-card__icon">🌐</div>
+                    <h3 class="deliverable-card__title">Real API Integrations</h3>
+                    <p class="deliverable-card__desc">Replacing the current state management with live banking APIs (like Plaid or local UPI gateways) for real-world transaction handling.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-3">
+                    <div class="deliverable-card__icon">🎙️</div>
+                    <h3 class="deliverable-card__title">Voice Payments</h3>
+                    <p class="deliverable-card__desc">Integrating voice-assisted commands to make accessibility even better for visually impaired or elderly users.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Available Resources -->
+    <section id="resources" class="section">
+        <div class="section__container">
+            <div class="section__header reveal">
+                <div class="section__label">THE TOOLKIT</div>
+                <h2 class="section__title">Tools & <em>Resources</em></h2>
+                <p class="section__subtitle">The technologies and resources used to bring Nova Bank to life.</p>
+            </div>
+
+            <div class="grid-2">
+                <div class="glass-card reveal reveal-delay-1">
+                    <div class="resource-card__icon">🖌️</div>
+                    <h3 class="resource-card__title">Figma + Figma Make</h3>
+                    <p class="resource-card__desc">Utilized bleeding-edge AI design-to-code pipelines to scaffold initial React component structures from high-fidelity mockups. Directed the AI-executed implementation and validated output against the Figma design to ensure pixel-perfect fidelity and semantic architecture.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-2">
+                    <div class="resource-card__icon">✍️</div>
+                    <h3 class="resource-card__title">Google Fonts — Inter</h3>
+                    <p class="resource-card__desc">Inter serves as the sole typeface across all screens — from 10px navigation labels to 60px financial amounts — ensuring consistency and exceptional readability.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-3">
+                    <div class="resource-card__icon">💎</div>
+                    <h3 class="resource-card__title">Lucide Icons</h3>
+                    <p class="resource-card__desc">A clean, consistent icon set integrated into the interactive prototype to provide crisp, scalable visual indicators.</p>
+                </div>
+                <div class="glass-card reveal reveal-delay-4">
+                    <div class="resource-card__icon">🎭</div>
+                    <h3 class="resource-card__title">Framer Motion</h3>
+                    <p class="resource-card__desc">Orchestrated advanced fluid motion design and spring-physics configuration profiles via an AI-assisted development workflow. Directed the precise layout alignment, coordinate calculations, and exit/entry states to deliver a highly tactile, responsive mobile banking experience.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section section--alt" id="prototype">
+        <div class="section__header reveal">
+            <div class="section__label">TRY IT YOURSELF</div>
+            <h2 class="section__title">Experience the <em>Prototype</em></h2>
+            <p class="section__subtitle">Interact with the live Nova Bank application and explore every screen, animation, and micro-interaction.</p>
+        </div>
+        <a href="https://nova-bank-app-ebon.vercel.app/login" target="_blank" class="cta-btn reveal">Launch Nova Bank →</a>
+        
+        <div class="reveal" style="margin: 1.5rem auto 0 auto; text-align: center; max-width: 600px;">
+            <p style="font-size: 0.85rem; color: var(--clr-text-muted); line-height: 1.5;">
+                <em>Note: This is a front-end prototype. OTPs and transactions are simulated. Use the Demo OTP Code <strong>123456</strong> to clear any secure verification screens.</em>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        © 2026 Nova Bank — UX/UI Case Study. Crafted with care.
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Wait for fonts to load before showing text gradients
+        document.fonts.ready.then(() => {
+            document.documentElement.classList.add('fonts-loaded');
+        });
+
+        // Scroll Reveal Animation
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+        // Sticky Nav & Active Section Highlighting
+        const nav = document.querySelector('.nav');
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav__link');
+
+        window.addEventListener('scroll', () => {
+            // Sticky Nav
+            if (window.scrollY > 60) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled'); // keep it dark for this design
+            }
+
+            // Active Section
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.scrollY >= (sectionTop - 150)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Glass Card Glow Effect
+        document.querySelectorAll('.glass-card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                card.style.setProperty('--mouse-x', `${x}px`);
+                card.style.setProperty('--mouse-y', `${y}px`);
+            });
+        });
+
+        // Smooth Scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
