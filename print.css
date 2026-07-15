@@ -1,42 +1,103 @@
 /* ============================================================
    Nova Bank Case Study — Print / PDF Stylesheet
-   Light mode overrides for clean, professional printing
+   Dark mode preserved — optimized for A4 portrait
    ============================================================ */
 
 @media print {
-  /* --- Base Overrides --- */
-  :root {
-    --clr-bg: #ffffff;
-    --clr-bg-alt: #f8f9fa;
-    --clr-surface: #f0f2f5;
-    --clr-border: #e0e0e0;
-    --clr-text: #1a1a1a;
-    --clr-text-secondary: #444444;
-    --clr-text-muted: #777777;
-    --clr-accent: #4F46E5;
+  /* Force browser to render background colors in PDF */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+    color-adjust: exact !important;
   }
 
+  /* Keep the dark theme */
   body {
-    background: #fff;
-    color: #1a1a1a;
+    background-color: var(--clr-bg) !important;
+    color: var(--clr-text) !important;
     font-size: 11pt;
     line-height: 1.5;
   }
 
-  /* --- Hide Interactive Elements --- */
+  /* --- Hide Interactive-Only Elements --- */
   .nav,
   .toc,
   .cta-section,
+  .cta-btn,
   .hero__orb,
   .nav__pdf-btn,
   .finding-card__resolved {
     display: none !important;
   }
 
+  /* --- CRITICAL FIX 1: Remove ALL overflow:hidden --- 
+     overflow:hidden on containers CLIPS content across 
+     page boundaries in print. Every container must be visible. */
+  *,
+  .hero,
+  .glass-card,
+  .flow-image-wrap,
+  .screen-showcase__frame,
+  .section,
+  .section--alt,
+  .section__container,
+  .flow-grid,
+  .intro__image {
+    overflow: visible !important;
+  }
+
+  /* --- CRITICAL FIX 2: Kill viewport heights --- */
+  .hero {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 2rem 1rem !important;
+    position: relative !important;
+  }
+
+  .section {
+    padding: 1.5rem 1rem !important;
+    position: relative !important;
+  }
+
+  /* --- CRITICAL FIX 3: Section headers must NEVER split ---
+     The label, title, and subtitle must stay as one block */
+  .section__header {
+    page-break-inside: avoid !important;
+    break-inside: avoid !important;
+  }
+
+  /* --- CRITICAL FIX 4: Shrink the User Flow SVG for A4 ---
+     The SVG viewBox is 400x600 which fills an entire A4 page.
+     Cap it to ~50% of page height so it fits WITH its header. */
+  .flow-image-wrap svg {
+    max-height: 400px !important;
+    width: auto !important;
+    margin: 0 auto !important;
+    display: block !important;
+  }
+
+  /* Single-column flow grid for narrow A4 */
+  .flow-grid {
+    grid-template-columns: 1fr !important;
+    gap: 1rem !important;
+  }
+
+  /* Remove max-height on screen images */
+  .screen-showcase__frame img {
+    max-height: none !important;
+  }
+
+  /* --- Reveal animations: show everything --- */
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
   /* --- Typography --- */
   h1, h2, h3, h4, h5, h6 {
-    color: #1a1a1a;
-    page-break-after: avoid;
+    page-break-after: avoid !important;
+    break-after: avoid !important;
   }
 
   .section__title em,
@@ -67,53 +128,42 @@
     background: none;
   }
 
-  /* --- Layout --- */
-  .section {
-    padding: 2rem 1rem;
-    page-break-inside: avoid;
-  }
-
-  .hero {
-    min-height: auto;
-    padding: 2rem 1rem;
-    background: #fff;
-    page-break-after: always;
-  }
-
-  /* --- Cards --- */
+  /* --- Cards: flatten for print --- 
+     NOTE: NO page-break-inside:avoid on glass-card.
+     Tall cards (like the SVG flowchart) would push entire 
+     pages of blank space if they can't break. */
   .glass-card {
-    background: #f8f9fa;
-    border: 1px solid #e0e0e0;
-    backdrop-filter: none;
-    -webkit-backdrop-filter: none;
-    box-shadow: none;
-    page-break-inside: avoid;
+    background: var(--clr-surface) !important;
+    border: 1px solid var(--clr-border) !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    box-shadow: none !important;
+    transform: none !important;
   }
 
   .glass-card::before {
-    display: none;
+    display: none !important;
   }
 
   .glass-card:hover {
-    transform: none;
-    box-shadow: none;
+    transform: none !important;
+    box-shadow: none !important;
   }
 
   /* --- Images --- */
   .screen-showcase__frame,
   .flow-image-wrap,
   .persona-image-wrap {
-    box-shadow: none;
-    border: 1px solid #ddd;
-    page-break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid var(--clr-border) !important;
   }
 
   img {
-    max-width: 100%;
+    max-width: 100% !important;
     page-break-inside: avoid;
   }
 
-  /* --- Grids — keep readable columns --- */
+  /* --- Grids: scale for A4 portrait --- */
   .grid-3 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -128,7 +178,7 @@
 
   /* --- Rating Bars --- */
   .rating-bar__track {
-    background: #e0e0e0;
+    background: var(--clr-border);
   }
 
   .rating-bar__fill {
@@ -137,18 +187,18 @@
 
   /* --- Table --- */
   .results-table th {
-    color: #555;
-    border-bottom-color: #ccc;
+    color: var(--clr-text-secondary);
+    border-bottom-color: var(--clr-border);
   }
 
   .results-table td {
-    color: #333;
-    border-bottom-color: #eee;
+    color: var(--clr-text);
+    border-bottom-color: var(--clr-border);
   }
 
   /* --- Quote --- */
   .quote-block {
-    background: #f5f5ff;
+    background: var(--clr-surface);
     border-left-color: #4F46E5;
   }
 
@@ -156,25 +206,24 @@
   a[href^="http"]::after {
     content: " (" attr(href) ")";
     font-size: 0.75em;
-    color: #999;
+    color: var(--clr-text-muted);
     word-break: break-all;
   }
 
-  /* --- Color Swatches: add border for light swatches --- */
+  /* --- Color Swatches --- */
   .color-swatch__block {
-    border: 1px solid #ddd;
+    border: 1px solid var(--clr-border);
   }
 
-  /* --- Reveal animations: show everything --- */
-  .reveal {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-
-  /* --- Footer --- */
+  /* --- Footer: glue it to the previous page, never alone --- */
   .footer {
-    color: #999;
-    border-top-color: #eee;
+    color: var(--clr-text-secondary);
+    border-top-color: var(--clr-border);
+    page-break-before: avoid !important;
+    break-before: avoid !important;
+    margin-top: 0 !important;
+    padding-top: 1.5rem !important;
+    padding-bottom: 1rem !important;
   }
 
   /* --- CTA Button --- */
@@ -191,5 +240,12 @@
   .section__label::before,
   .section__label::after {
     background: #4F46E5;
+  }
+
+  /* --- Selective page-break avoidance ---
+     Only on SMALL elements that should never split. 
+     Never on large containers that might exceed a page. */
+  .screen-showcase {
+    page-break-inside: avoid;
   }
 }

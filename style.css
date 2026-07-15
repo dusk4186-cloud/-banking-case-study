@@ -157,15 +157,8 @@ h1, h2, h3, h4, h5, h6 {
   display: flex;
   gap: 0.25rem;
   list-style: none;
-  flex-wrap: nowrap;
-  overflow-x: auto;
-  padding-bottom: 4px;
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-.nav__links::-webkit-scrollbar {
-  display: none;
+  flex-wrap: wrap;
+  justify-content: flex-end;
 }
 
 /* Scroll Hint Fade overlay */
@@ -191,6 +184,7 @@ h1, h2, h3, h4, h5, h6 {
   padding-right: 5px;
   color: var(--clr-text-secondary);
   opacity: 0.8;
+  display: none; /* Hidden on desktop */
 }
 
 .nav__link--highlight {
@@ -207,6 +201,11 @@ h1, h2, h3, h4, h5, h6 {
   transition: all var(--transition-fast);
   position: relative;
   white-space: nowrap;
+  display: block;
+}
+
+.nav__links li {
+  flex-shrink: 0;
 }
 
 @media (hover: hover) {
@@ -1222,8 +1221,26 @@ h1, h2, h3, h4, h5, h6 {
   .color-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+  .nav__links {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 4px;
+    padding-right: 40px;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    justify-content: flex-start;
+  }
+  .nav__links::-webkit-scrollbar {
+    display: none;
+  }
   .nav__links-wrapper {
     margin: 0 0.5rem;
+    overflow: hidden; /* Prevent horizontal body expansion */
+  }
+  .nav__scroll-hint {
+    display: flex;
   }
   .nav__pdf-btn {
     display: none;
