@@ -240,7 +240,7 @@ h1, h2, h3, h4, h5, h6 {
 
 /* --- Sections --- */
 .section {
-  padding: var(--space-3xl) var(--space-lg);
+  padding: 4.5rem var(--space-lg);
   position: relative;
 }
 
@@ -666,6 +666,29 @@ h1, h2, h3, h4, h5, h6 {
   line-height: 1.7;
 }
 
+/* --- Empathy Map --- */
+.empathy-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.empathy-list li {
+  font-size: 0.83rem;
+  color: var(--clr-text-secondary);
+  line-height: 1.5;
+  margin-bottom: 0.5rem;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.empathy-list li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--clr-text-muted);
+}
+
 /* --- Scope Cards --- */
 .scope-card__icon {
   font-size: 2rem;
@@ -727,24 +750,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .flow-steps li {
-  padding: 0.6rem 0;
+  padding: 1.25rem 0;
   padding-left: 1.5rem;
   position: relative;
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   color: var(--clr-text-secondary);
-  border-left: 2px solid rgba(79, 70, 229, 0.15);
+  border-left: 2px solid rgba(79, 70, 229, 0.2);
+  line-height: 1.6;
 }
 
 .flow-steps li::before {
   content: '';
   position: absolute;
   left: -5px;
-  top: 50%;
-  transform: translateY(-50%);
+  top: 1.7rem;
   width: 8px;
   height: 8px;
   border-radius: 50%;
   background: var(--clr-accent);
+  box-shadow: 0 0 8px rgba(79, 70, 229, 0.6);
 }
 
 .flow-steps li strong {

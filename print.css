@@ -82,6 +82,15 @@
     gap: 1rem !important;
   }
 
+  .flow-steps li {
+    padding: 0.5rem 0 !important;
+    font-size: 0.85rem !important;
+  }
+
+  .flow-steps li::before {
+    top: 0.9rem !important;
+  }
+
   /* Remove max-height on screen images */
   .screen-showcase__frame img {
     max-height: none !important;
@@ -245,7 +254,9 @@
   /* --- Selective page-break avoidance ---
      Only on SMALL elements that should never split. 
      Never on large containers that might exceed a page. */
-  .screen-showcase {
+  .screen-showcase,
+  .empathy-card {
     page-break-inside: avoid;
+    break-inside: avoid;
   }
 }
